@@ -188,7 +188,10 @@ doc_generator = CustomDocumentationGenerator(
     pages, template_dir=str(path / 'tmpl'))
 doc_generator.generate(str(path / 'sources'))
 
-shutil.rmtree(path / '..' / 'docs')
+
+if (path / '..' / 'docs').exists():
+    shutil.rmtree(path / '..' / 'docs')
+
 shutil.copytree(path / 'site', path / '..' / 'docs')
 
 # if (path / 'sources' / 'framework').exists():
