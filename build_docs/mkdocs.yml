@@ -1,0 +1,68 @@
+autogen_after: Development
+docs_dir: sources
+nav:
+- Home: index.md
+- Development: development.md
+- Core:
+  - registry: dlf/core/registry.md
+  - builder: dlf/core/builder.md
+  - data_generator: dlf/core/data_generator.md
+  - experiment: dlf/core/experiment.md
+  - evaluator: dlf/core/evaluator.md
+  - callback: dlf/core/callback.md
+  - preprocessing: dlf/core/preprocessing.md
+  - model: dlf/core/model.md
+- Callbacks:
+  - TensorboardLogger: dlf/callbacks/TensorboardLogger.md
+  - SegmentationLogger: dlf/callbacks/SegmentationLogger.md
+  - ObjectDetectionLogger: dlf/callbacks/ObjectDetectionLogger.md
+  - CycleGanLogger: dlf/callbacks/CycleGanLogger.md
+- Data generators:
+  - TfRecordSegmentationReader: dlf/data_generators/TfRecordSegmentationReader.md
+  - FsRandomUnpairedReader: dlf/data_generators/FsRandomUnpairedReader.md
+  - FsImageNetLikeReader: dlf/data_generators/FsImageNetLikeReader.md
+  - TfRecordSSDReader: dlf/data_generators/TfRecordSSDReader.md
+- Evaluators:
+  - CocoObjectDectectionEvaluator: dlf/evaluators/CocoObjectDectectionEvaluator.md
+- Losses:
+  - NTXentLoss: dlf/losses/NTXentLoss.md
+  - SparseCategoricalCrossentropyIgnore: dlf/losses/SparseCategoricalCrossentropyIgnore.md
+  - CenterNetLoss: dlf/losses/CenterNetLoss.md
+  - SSDLoss: dlf/losses/SSDLoss.md
+  - Keras: dlf/losses/Keras.md
+- Metrics:
+  - SparseCategoricalCrossentropyIgnore: dlf/metrics/SparseCategoricalCrossentropyIgnore.md
+  - SparseMeanIoU: dlf/metrics/SparseMeanIoU.md
+  - Keras: dlf/metrics/Keras.md
+- Models:
+  - SSD: dlf/models/SSD.md
+  - DeeplabV3Plus: dlf/models/DeeplabV3Plus.md
+  - FCN: dlf/models/FCN.md
+  - CenterNet: dlf/models/CenterNet.md
+  - CycleGAN: dlf/models/CycleGAN.md
+  - VggEncoderDecoder: dlf/models/VggEncoderDecoder.md
+  - SimCLR: dlf/models/SimCLR.md
+  - FeatureExtractor: dlf/models/FeatureExtractor.md
+  - ResNet18: dlf/models/ResNet18.md
+  - ResNet34: dlf/models/ResNet34.md
+- Preprocessing methods:
+  - RandomTransform: dlf/preprocessing_methods/RandomTransform.md
+  - RandomBrightness: dlf/preprocessing_methods/RandomBrightness.md
+  - RandomHorizontalFlip: dlf/preprocessing_methods/RandomHorizontalFlip.md
+  - RandomVerticalFlip: dlf/preprocessing_methods/RandomVerticalFlip.md
+  - RandomSaturation: dlf/preprocessing_methods/RandomSaturation.md
+  - RandomNoise: dlf/preprocessing_methods/RandomNoise.md
+  - RandomColorDistortion: dlf/preprocessing_methods/RandomColorDistortion.md
+  - RandomHue: dlf/preprocessing_methods/RandomHue.md
+  - Resize: dlf/preprocessing_methods/Resize.md
+  - RandomCrop: dlf/preprocessing_methods/RandomCrop.md
+  - RandomBlur: dlf/preprocessing_methods/RandomBlur.md
+  - RandomFisheye: dlf/preprocessing_methods/RandomFisheye.md
+site_description: A deep learning framework based on TF 2.0
+site_name: dl-framework
+theme:
+  font: 'false'
+  name: material
+  palette:
+    accent: red
+    primary: red
