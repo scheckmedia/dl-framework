@@ -1,0 +1,70 @@
+experiment:
+  output_folder: /mnt/data/experiments/dlf/centernet_coco_resnet50
+model:
+  centernet:
+    feature_extractor:
+      model_name: ResNet50
+      weights: imagenet
+      freeze: True
+      input_shape:
+        - &width 512
+        - &height 512
+        - 3
+    num_classes: 80
+    weight_decay: 0.0001
+    summary: True
+    # model_weights: /mnt/data/experiments/dlf/centernet_adam/checkpoints/ckpt-504
+    loss:
+      centernetloss:
+
+    optimizer:
+      - Adam:
+        momentum: 0.9
+        learning_rate: 0.001
+
+input_reader:
+  training_reader:
+    name: tf_record_ssd_reader
+    glob_pattern: /mnt/data/datasets/mscoco/tfrecord/coco_train.record*
+    labelmap: &labelmap /mnt/data/datasets/mscoco/tfrecord/label_map.pbtxt
+    ignore:
+    remap:
+    background_as_zero: False
+    preprocess_list:
+      h_flip:
+      v_flip:
+      resize:
+        width: *width
+        height: *height
+      # color_distortion:
+      #  s: 1
+      #  color_drop_probability: 0.2
+      noise:
+        mean: 0
+        std: 3
+
+  validation_reader:
+    name: tf_record_ssd_reader
+    glob_pattern: /mnt/data/datasets/mscoco/tfrecord/coco_val.record*
+    labelmap: *labelmap
+    shuffle: False
+    ignore:
+    remap:
+    background_as_zero: False
+    preprocess_list:
+      resize:
+        width: *width
+        height: *height
+
+training:
+  metrics:
+  callbacks:
+    ObjectDetectionLogger:
+      evaluator:
+        coco_object_detection_evaluator:
+      log_train_images: False
+      num_visualizations: 50
+
+  num_steps: 1000000
+  eval_every_step: 1000
+  batch_size: 16

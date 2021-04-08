@@ -1,0 +1,54 @@
+experiment:
+  output_folder: /mnt/data/experiments/GANS/cycle_gan
+model:
+  cycle_gan:
+    input_shape:
+      - &width 384
+      - &height 384
+      - 3
+    generator: resnet
+    generator_filters: 32
+    discriminator_filters: 64
+    use_perceptual_loss: False
+    cycle_weight: 3.0
+    identity_weight: 0.5
+    summary: True
+    optimizer:
+      - Adam:
+          learning_rate: 0.0001
+          beta_1: 0.5
+      - Adam:
+          learning_rate: 0.0001
+          beta_1: 0.5
+      - Adam:
+          learning_rate: 0.0001
+          beta_1: 0.5
+      - Adam:
+          learning_rate: 0.0001
+          beta_1: 0.5
+
+input_reader:
+  training_reader:
+    name: fs_random_unpaired_reader
+    paths_lhs: /mnt/data/datasets/theodore_wheeled_walker/*_img.png
+    paths_rhs:
+      - /mnt/data/datasets/omnidetector-Flat/JPEGImages/*.jpg
+      - /mnt/data/datasets/yt-fisheye/**/*.jpg
+    lhs_limit: 5000
+    rhs_limit: 5000
+    shuffle_buffer: 2048
+    preprocess_list:
+      resize:
+        width: *width
+        height: *height
+
+training:
+  metrics:
+  callbacks:
+    CycleGanLogger:
+  num_steps: 500000
+  eval_every_step: 500
+  batch_size: 1
+  save_strategy:
+    monitor: train_loss_total_cycle
+    mode: min

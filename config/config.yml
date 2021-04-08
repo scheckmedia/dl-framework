@@ -1,0 +1,92 @@
+experiment:
+  output_folder: /mnt/data/experiments/fisheye/Cityscapes-Non-Distorted-Deeplab
+model:
+  fcn:
+    feature_extractor:
+      model_name: ResNet50
+      input_shape:
+        - 512
+        - 512
+        - 3
+    output_shape:
+      - 512
+      - 512
+    skip_layers:
+      - conv3_block4_out
+      - conv4_block6_out
+      - conv5_block1_out
+    interpolation_bilinear: True
+    num_classes: &num_classes 2
+    summary: True
+    loss:
+      SparseCategoricalCrossentropyIgnore:
+        num_classes: *num_classes
+        from_logits: False
+    optimizer:
+      - Adam:
+          learning_rate: 0.0001
+        #momentum: 0.9
+
+input_reader:
+  training_reader:
+    name: tf_record_segmentation_reader
+    path: /mnt/data/datasets/fisheyeroad_v2/validation_2405_800x800.record
+    labelmap: &labelmap /mnt/data/datasets/fisheyeroad_v2/labelmap.pbtxt
+    ignore:
+    remap: &mapping
+      2: 0
+      3: 0
+      4: 0
+      5: 0
+      6: 0
+      7: 0
+      9: 0
+      12: 0
+      14: 0
+      8: 1
+      10: 1
+      11: 1
+      13: 1
+    preprocess_list:
+      h_flip:
+      v_flip:
+      resize:
+        width: 512
+        height: 512
+      #crop:
+      #   width: 512
+      #   height: 512
+      situration:
+      brightness:
+        max_delta: 0.6
+      blur:
+      noise:
+        mean: 0
+        std: 5
+
+  validation_reader:
+    name: tf_record_segmentation_reader
+    path: /mnt/data/datasets/LMS Fisheye/lms-fisheye_150.tfrecord
+    labelmap: *labelmap
+    shuffle: False
+    ignore:
+    remap:
+    preprocess_list:
+      resize:
+        width: 512
+        height: 512
+
+training:
+  metrics:
+    SparseCategoricalCrossentropyIgnore:
+      from_logits: False
+      num_classes: *num_classes
+    SparseMeanIoU:
+      num_classes: *num_classes
+  callbacks:
+    SegmentationLogger:
+      # num_visualizations: 200
+      # overlay_opacity: 0.6
+  num_steps: 50000
+  eval_every_step: 1000
+  batch_size: 4

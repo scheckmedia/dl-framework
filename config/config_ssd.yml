@@ -1,0 +1,63 @@
+experiment:
+  output_folder: /mnt/data/experiments/ssd/ssd_vgg
+model:
+  ssd:
+    num_classes: &num_classes 7
+    input_shape:
+      - &width 512
+      - &height 512
+      - 3
+    summary: True
+    optimizer:
+      - Adam:
+          learning_rate: 0.0001
+          #momentum: 0.9
+    class_score_threshold: 0.6
+    nms_threshold: 0.45
+    max_boxes: 200
+    arch: vgg_ssd_512
+
+input_reader:
+  training_reader:
+    name: tf_record_ssd_reader
+    path: /mnt/data/datasets/wheeled_walker_100k_8fps_25switch/25k_sample_4/training.tfrecord
+    labelmap: &labelmap /mnt/data/datasets/wheeled_walker_100k_8fps_25switch/label_map.pbtxt
+    ignore:
+    remap:
+    preprocess_list:
+      # h_flip:
+      # v_flip:
+      resize:
+        width: *width
+        height: *height
+      color_distortion:
+        s: 0.4
+        color_drop_probability: 0.6
+      noise:
+        mean: 0
+        std: 5
+
+  validation_reader:
+    name: tf_record_ssd_reader
+    path: /mnt/data/datasets/omnidetector-Flat/training.tfrecord
+    labelmap: *labelmap
+    shuffle: False
+    ignore:
+    remap:
+    preprocess_list:
+      resize:
+        width: *width
+        height: *height
+
+training:
+  metrics:
+  callbacks:
+    ObjectDetectionLogger:
+      evaluator:
+        coco_object_detection_evaluator:
+      log_train_images: False
+    # num_visualizations: 200
+
+  num_steps: 20000
+  eval_every_step: 1000
+  batch_size: 4

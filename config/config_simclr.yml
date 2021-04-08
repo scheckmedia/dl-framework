@@ -1,0 +1,77 @@
+experiment:
+  output_folder: /mnt/data/experiments/dlf/simclr
+model:
+  simclr:
+    feature_extractor:
+      model_name: ResNet18
+      input_shape:
+        - &width 224
+        - &height 224
+        - 3
+      weights:
+    num_projection_dimension: 128
+    linear_evaluation:
+      num_classes: 62
+      linear_train_at_step: 195312
+      freeze_base_network: True
+    summary: True
+    weight_decay: 1e-6
+    loss:
+      NTXentLoss:
+        batch_size: &batch_size 128
+        temperature: 0.5
+      # categorical_labels is True in reader otherwise it should be SparseCategoricalCrossentropy
+      CategoricalCrossentropy:
+        from_logits: True
+    optimizer:
+      - Adam: # lr for simclr unsupervised
+          learning_rate:
+            PolynomialDecay:
+              initial_learning_rate: 0.001
+              decay_steps: 195312
+              end_learning_rate: 0.00001
+      - SGD: # lr for linear evaluation
+          learning_rate: 0.001
+          momentum: 0.9
+
+input_reader:
+  training_reader:
+    name: fs_imagenet_like_reader
+    path: /mnt/data/datasets/openimages/semisupervised/filtered_62/train/**/*.jpg
+    categorical_labels: True
+    is_simclr: True
+    preprocess_list:
+      h_flip:
+      color_distortion:
+        s: 1.0
+        color_jitter_probability: 0.3
+        color_drop_probability: 0.8
+      crop:
+        width: *width
+        height: *height
+        scale: 1.5
+      resize:
+        width: *width
+        height: *height
+      blur:
+
+  validation_reader:
+    name: fs_imagenet_like_reader
+    path: /mnt/data/datasets/openimages/semisupervised/filtered_62/validation/**/*.jpg
+    categorical_labels: True
+    is_simclr: True
+    preprocess_list:
+      resize:
+        width: *width
+        height: *height
+
+training:
+  metrics:
+  callbacks:
+    TensorboardLogger:
+  num_steps: 390625
+  eval_every_step: 500
+  batch_size: *batch_size
+  save_strategy:
+    monitor: validation_loss_categorical_crossentropy
+    mode: max
