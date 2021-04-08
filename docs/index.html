@@ -1248,7 +1248,7 @@ This is also the case for loss functions, data loaders, metrics or pre-processin
 While semantic segmentation training or classification tasks are identically in the training loop, you can also implement your loop.
 The best example is the <em>CycleGAN</em> implementation, that overrides the basic training loop.</p>
 <h2 id="docs">Docs</h2>
-<p><a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation</a></p>
+<p><a href="https://scheckmedia.github.io/dl-framework/">Documentation</a></p>
 <h2 id="installation">Installation</h2>
 <p>Use the following command to install the required python packages via pip.</p>
 <pre><code class="language-sh">pip install -r requirements.txt
@@ -1274,9 +1274,9 @@ The best example is the <em>CycleGAN</em> implementation, that overrides the bas
 </tbody>
 </table>
 <h4 id="model">model:</h4>
-<p>The model section contains required parameters to initialize an ANN model from the framework. All list of all available models and the corresponding parameters can you find in the <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation/Models</a>.</p>
+<p>The model section contains required parameters to initialize an ANN model from the framework. All list of all available models and the corresponding parameters can you find in the <a href="https://scheckmedia.github.io/dl-framework/">Documentation/Models</a>.</p>
 <h4 id="input_reader">input_reader:</h4>
-<p>The input reader section is responsible to provide data during training, validation and test <em>(not implemented at the moment)</em>. You can find all data generators and the corresponding parameters in <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation/Data generators</a></p>
+<p>The input reader section is responsible to provide data during training, validation and test <em>(not implemented at the moment)</em>. You can find all data generators and the corresponding parameters in <a href="https://scheckmedia.github.io/dl-framework/">Documentation/Data generators</a></p>
 <table>
 <thead>
 <tr>
@@ -1311,11 +1311,11 @@ The best example is the <em>CycleGAN</em> implementation, that overrides the bas
 <tbody>
 <tr>
 <td>metrics</td>
-<td>Optional. A list of metrics which are evaluated during training/validation/test. <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation/Metrics</a></td>
+<td>Optional. A list of metrics which are evaluated during training/validation/test. <a href="https://scheckmedia.github.io/dl-framework/">Documentation/Metrics</a></td>
 </tr>
 <tr>
 <td>callbacks</td>
-<td>Optional. A list of callbacks which are executed during training/validation/test.<a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation/Callbacks</a></td>
+<td>Optional. A list of callbacks which are executed during training/validation/test.<a href="https://scheckmedia.github.io/dl-framework/">Documentation/Callbacks</a></td>
 </tr>
 <tr>
 <td>num_steps</td>
@@ -1331,14 +1331,14 @@ The best example is the <em>CycleGAN</em> implementation, that overrides the bas
 </tr>
 <tr>
 <td>save_strategy</td>
-<td>Optional. Provides a strategy when a model should be saved. <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/framework/core/experiment/#savestrategy-class">Documentation</a></td>
+<td>Optional. Provides a strategy when a model should be saved. <a href="https://scheckmedia.github.io/dl-framework/framework/core/experiment/#savestrategy-class">Documentation</a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="example-configuration">Example configuration</h4>
 <p>Below is a sample configuration that is used to train a CNN for a segmentation task.
 In the experiment section, we define the output folder where all results are saved.
-As model the configuration specifies the <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/framework/models/VggEncoderDecoder/">vgg_encoder_decoder</a> and the corresponding parameters.
+As model the configuration specifies the <a href="https://scheckmedia.github.io/dl-framework/framework/models/VggEncoderDecoder/">vgg_encoder_decoder</a> and the corresponding parameters.
 In this case, the input is an RGB image with a resolution of 512x512 pixels.
 We set up the network that we can distinguish between 7 classes.
 <code>Note: &amp;num_classes is YAML syntax to define a variable which we can reuse in our configuration</code>
