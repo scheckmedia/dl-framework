@@ -1,0 +1,3516 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A deep learning framework based on TF 2.0">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+    
+    
+      
+        <title>Keras - dl-framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.33e2939f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"";--md-code-font-family:""}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usage-in-framework" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="dl-framework" class="md-header__button md-logo" aria-label="dl-framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            dl-framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Keras
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="dl-framework" class="md-nav__button md-logo" aria-label="dl-framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    dl-framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Core
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Core
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/registry/" class="md-nav__link">
+        registry
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/builder/" class="md-nav__link">
+        builder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/data_generator/" class="md-nav__link">
+        data_generator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/experiment/" class="md-nav__link">
+        experiment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/evaluator/" class="md-nav__link">
+        evaluator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/callback/" class="md-nav__link">
+        callback
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/preprocessing/" class="md-nav__link">
+        preprocessing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/model/" class="md-nav__link">
+        model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Callbacks
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Callbacks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Callbacks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../callbacks/TensorboardLogger/" class="md-nav__link">
+        TensorboardLogger
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../callbacks/SegmentationLogger/" class="md-nav__link">
+        SegmentationLogger
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../callbacks/ObjectDetectionLogger/" class="md-nav__link">
+        ObjectDetectionLogger
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../callbacks/CycleGanLogger/" class="md-nav__link">
+        CycleGanLogger
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Data generators
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data generators" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Data generators
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_generators/TfRecordSegmentationReader/" class="md-nav__link">
+        TfRecordSegmentationReader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_generators/FsRandomUnpairedReader/" class="md-nav__link">
+        FsRandomUnpairedReader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_generators/FsImageNetLikeReader/" class="md-nav__link">
+        FsImageNetLikeReader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_generators/TfRecordSSDReader/" class="md-nav__link">
+        TfRecordSSDReader
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Evaluators
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Evaluators" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Evaluators
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluators/CocoObjectDectectionEvaluator/" class="md-nav__link">
+        CocoObjectDectectionEvaluator
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Losses
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Losses" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Losses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../losses/NTXentLoss/" class="md-nav__link">
+        NTXentLoss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../losses/SparseCategoricalCrossentropyIgnore/" class="md-nav__link">
+        SparseCategoricalCrossentropyIgnore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../losses/CenterNetLoss/" class="md-nav__link">
+        CenterNetLoss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../losses/SSDLoss/" class="md-nav__link">
+        SSDLoss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../losses/Keras/" class="md-nav__link">
+        Keras
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      <label class="md-nav__link" for="__nav_8">
+        Metrics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Metrics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Metrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SparseCategoricalCrossentropyIgnore/" class="md-nav__link">
+        SparseCategoricalCrossentropyIgnore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SparseMeanIoU/" class="md-nav__link">
+        SparseMeanIoU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Keras
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Keras
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-configuration" class="md-nav__link">
+    YAML Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Models
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Models" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/SSD/" class="md-nav__link">
+        SSD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/DeeplabV3Plus/" class="md-nav__link">
+        DeeplabV3Plus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/FCN/" class="md-nav__link">
+        FCN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CenterNet/" class="md-nav__link">
+        CenterNet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CycleGAN/" class="md-nav__link">
+        CycleGAN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/VggEncoderDecoder/" class="md-nav__link">
+        VggEncoderDecoder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/SimCLR/" class="md-nav__link">
+        SimCLR
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/FeatureExtractor/" class="md-nav__link">
+        FeatureExtractor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ResNet18/" class="md-nav__link">
+        ResNet18
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ResNet34/" class="md-nav__link">
+        ResNet34
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Preprocessing methods
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Preprocessing methods" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Preprocessing methods
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomTransform/" class="md-nav__link">
+        RandomTransform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomBrightness/" class="md-nav__link">
+        RandomBrightness
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomHorizontalFlip/" class="md-nav__link">
+        RandomHorizontalFlip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomVerticalFlip/" class="md-nav__link">
+        RandomVerticalFlip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomSaturation/" class="md-nav__link">
+        RandomSaturation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomNoise/" class="md-nav__link">
+        RandomNoise
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomColorDistortion/" class="md-nav__link">
+        RandomColorDistortion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomHue/" class="md-nav__link">
+        RandomHue
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/Resize/" class="md-nav__link">
+        Resize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomCrop/" class="md-nav__link">
+        RandomCrop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomBlur/" class="md-nav__link">
+        RandomBlur
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomFisheye/" class="md-nav__link">
+        RandomFisheye
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-configuration" class="md-nav__link">
+    YAML Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h2 id="usage-in-framework">Usage in framework</h2>
+<p>All in tf.keras.metrics available metrics can be used in our framework.
+Just use the class name as configuration key and the arguments as as dict.</p>
+<h3 id="yaml-configuration">YAML Configuration</h3>
+<p>E.g. for tf.metrics.MeanAbsoluteError without no arguments</p>
+<pre><code class="language-yaml">metrics:
+    MeanSquaredError:
+</code></pre>
+<p>or for tf.metrics.MeanIoU with arguments:</p>
+<pre><code class="language-yaml">metrics:
+    MeanIoU:
+        num_classes: 7
+</code></pre>
+<hr />
+<h2 id="keras-metrics">Keras metrics</h2>
+<h3 id="auc-class">AUC class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.AUC(
+    num_thresholds=200,
+    curve=&quot;ROC&quot;,
+    summation_method=&quot;interpolation&quot;,
+    name=None,
+    dtype=None,
+    thresholds=None,
+    multi_label=False,
+    label_weights=None,
+)
+</code></pre>
+<p>Computes the approximate AUC (Area under the curve) via a Riemann sum.</p>
+<p>This metric creates four local variables, <code>true_positives</code>, <code>true_negatives</code>,
+<code>false_positives</code> and <code>false_negatives</code> that are used to compute the AUC.
+To discretize the AUC curve, a linearly spaced set of thresholds is used to
+compute pairs of recall and precision values. The area under the ROC-curve is
+therefore computed using the height of the recall values by the false positive
+rate, while the area under the PR-curve is the computed using the height of
+the precision values by the recall.</p>
+<p>This value is ultimately returned as <code>auc</code>, an idempotent operation that
+computes the area under a discretized curve of precision versus recall values
+(computed using the aforementioned variables). The <code>num_thresholds</code> variable
+controls the degree of discretization with larger numbers of thresholds more
+closely approximating the true AUC. The quality of the approximation may vary
+dramatically depending on <code>num_thresholds</code>. The <code>thresholds</code> parameter can be
+used to manually specify thresholds which split the predictions more evenly.</p>
+<p>For best results, <code>predictions</code> should be distributed approximately uniformly
+in the range [0, 1] and not peaked around 0 or 1. The quality of the AUC
+approximation may be poor if this is not the case. Setting <code>summation_method</code>
+to 'minoring' or 'majoring' can help quantify the error in the approximation
+by providing lower or upper bound estimate of the AUC.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+num_thresholds: (Optional) Defaults to 200. The number of thresholds to
+use when discretizing the roc curve. Values must be &gt; 1.
+curve: (Optional) Specifies the name of the curve to be computed, 'ROC'
+[default] or 'PR' for the Precision-Recall-curve.
+summation_method: (Optional) Specifies the <a href="https://en.wikipedia.org/wiki/Riemann_sum">Riemann summation method</a> used.
+'interpolation' (default) applies mid-point summation scheme for <code>ROC</code>.
+For PR-AUC, interpolates (true/false) positives but not the ratio that
+is precision (see Davis &amp; Goadrich 2006 for details);
+'minoring' applies left summation
+for increasing intervals and right summation for decreasing intervals;
+'majoring' does the opposite.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.
+thresholds: (Optional) A list of floating point values to use as the
+thresholds for discretizing the curve. If set, the <code>num_thresholds</code>
+parameter is ignored. Values should be in [0, 1]. Endpoint thresholds
+equal to {-epsilon, 1+epsilon} for a small positive epsilon value will
+be automatically included with these to correctly handle predictions
+equal to exactly 0 or 1.
+multi_label: boolean indicating whether multilabel data should be
+treated as such, wherein AUC is computed separately for each label and
+then averaged across labels, or (when False) if the data should be
+flattened into a single label before AUC computation. In the latter
+case, when multilabel data is passed to AUC, each label-prediction pair
+is treated as an individual data point. Should be set to False for
+multi-class data.
+label_weights: (optional) list, array, or tensor of non-negative weights
+used to compute AUCs for multilabel data. When <code>multi_label</code> is True,
+the weights are applied to the individual label AUCs when they are
+averaged to produce the multi-label AUC. When it's False, they are used
+to weight the individual label predictions in computing the confusion
+matrix on the flattened data. Note that this is unlike class_weights in
+that class_weights weights the example depending on the value of its
+label, whereas label_weights depends only on the index of that label
+before flattening; therefore <code>label_weights</code> should not be used for
+multi-class data.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.AUC(num_thresholds=3)
+m.update_state([0, 0, 1, 1], [0, 0.5, 0.3, 0.9])</p>
+<h1 id="threshold-values-are-0-1e-7-05-1-1e-7">threshold values are [0 - 1e-7, 0.5, 1 + 1e-7]</h1>
+<h1 id="tp-2-1-0-fp-2-0-0-fn-0-1-2-tn-0-2-2">tp = [2, 1, 0], fp = [2, 0, 0], fn = [0, 1, 2], tn = [0, 2, 2]</h1>
+<h1 id="recall-1-05-0-fp_rate-1-0-0">recall = [1, 0.5, 0], fp_rate = [1, 0, 0]</h1>
+<h1 id="auc-10521-0-05020-0-075">auc = ((((1+0.5)/2)<em>(1-0))+ (((0.5+0)/2)</em>(0-0))) = 0.75</h1>
+<p>m.result().numpy()
+0.75</p>
+<p>m.reset_states()
+m.update_state([0, 0, 1, 1], [0, 0.5, 0.3, 0.9],
+...                sample_weight=[1, 0, 0, 1])
+m.result().numpy()
+1.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss='mse', metrics=[tf.keras.metrics.AUC()])
+</code></pre>
+<hr />
+<h3 id="accuracy-class">Accuracy class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.Accuracy(name=&quot;accuracy&quot;, dtype=None)
+</code></pre>
+<p>Calculates how often predictions equal labels.</p>
+<p>This metric creates two local variables, <code>total</code> and <code>count</code> that are used to
+compute the frequency with which <code>y_pred</code> matches <code>y_true</code>. This frequency is
+ultimately returned as <code>binary accuracy</code>: an idempotent operation that simply
+divides <code>total</code> by <code>count</code>.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.Accuracy()
+m.update_state([[1], [2], [3], [4]], [[0], [2], [3], [4]])
+m.result().numpy()
+0.75</p>
+<p>m.reset_states()
+m.update_state([[1], [2], [3], [4]], [[0], [2], [3], [4]],
+...                sample_weight=[1, 1, 0, 0])
+m.result().numpy()
+0.5</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.Accuracy()])
+</code></pre>
+<hr />
+<h3 id="binaryaccuracy-class">BinaryAccuracy class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.BinaryAccuracy(name=&quot;binary_accuracy&quot;, dtype=None, threshold=0.5)
+</code></pre>
+<p>Calculates how often predictions match binary labels.</p>
+<p>This metric creates two local variables, <code>total</code> and <code>count</code> that are used to
+compute the frequency with which <code>y_pred</code> matches <code>y_true</code>. This frequency is
+ultimately returned as <code>binary accuracy</code>: an idempotent operation that simply
+divides <code>total</code> by <code>count</code>.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.
+threshold: (Optional) Float representing the threshold for deciding
+whether prediction values are 1 or 0.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.BinaryAccuracy()
+m.update_state([[1], [1], [0], [0]], [[0.98], [1], [0], [0.6]])
+m.result().numpy()
+0.75</p>
+<p>m.reset_states()
+m.update_state([[1], [1], [0], [0]], [[0.98], [1], [0], [0.6]],
+...                sample_weight=[1, 0, 0, 1])
+m.result().numpy()
+0.5</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.BinaryAccuracy()])
+</code></pre>
+<hr />
+<h3 id="binarycrossentropy-class">BinaryCrossentropy class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.BinaryCrossentropy(
+    name=&quot;binary_crossentropy&quot;, dtype=None, from_logits=False, label_smoothing=0
+)
+</code></pre>
+<p>Computes the crossentropy metric between the labels and predictions.</p>
+<p>This is the crossentropy metric class to be used when there are only two
+label classes (0 and 1).</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.
+from_logits: (Optional )Whether output is expected to be a logits tensor.
+By default, we consider that output encodes a probability distribution.
+label_smoothing: (Optional) Float in [0, 1]. When &gt; 0, label values are
+smoothed, meaning the confidence on label values are relaxed.
+e.g. <code>label_smoothing=0.2</code> means that we will use a value of <code>0.1</code> for
+label <code>0</code> and <code>0.9</code> for label <code>1</code>".</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.BinaryCrossentropy()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]])
+m.result().numpy()
+0.81492424</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+0.9162905</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.BinaryCrossentropy()])
+</code></pre>
+<hr />
+<h3 id="categoricalaccuracy-class">CategoricalAccuracy class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.CategoricalAccuracy(name=&quot;categorical_accuracy&quot;, dtype=None)
+</code></pre>
+<p>Calculates how often predictions matches one-hot labels.</p>
+<p>You can provide logits of classes as <code>y_pred</code>, since argmax of
+logits and probabilities are same.</p>
+<p>This metric creates two local variables, <code>total</code> and <code>count</code> that are used to
+compute the frequency with which <code>y_pred</code> matches <code>y_true</code>. This frequency is
+ultimately returned as <code>categorical accuracy</code>: an idempotent operation that
+simply divides <code>total</code> by <code>count</code>.</p>
+<p><code>y_pred</code> and <code>y_true</code> should be passed in as vectors of probabilities, rather
+than as labels. If necessary, use <code>tf.one_hot</code> to expand <code>y_true</code> as a vector.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.CategoricalAccuracy()
+m.update_state([[0, 0, 1], [0, 1, 0]], [[0.1, 0.9, 0.8],
+...                 [0.05, 0.95, 0]])
+m.result().numpy()
+0.5</p>
+<p>m.reset_states()
+m.update_state([[0, 0, 1], [0, 1, 0]], [[0.1, 0.9, 0.8],
+...                 [0.05, 0.95, 0]],
+...                sample_weight=[0.7, 0.3])
+m.result().numpy()
+0.3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+  optimizer='sgd',
+  loss='mse',
+  metrics=[tf.keras.metrics.CategoricalAccuracy()])
+</code></pre>
+<hr />
+<h3 id="categoricalcrossentropy-class">CategoricalCrossentropy class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.CategoricalCrossentropy(
+    name=&quot;categorical_crossentropy&quot;, dtype=None, from_logits=False, label_smoothing=0
+)
+</code></pre>
+<p>Computes the crossentropy metric between the labels and predictions.</p>
+<p>This is the crossentropy metric class to be used when there are multiple
+label classes (2 or more). Here we assume that labels are given as a <code>one_hot</code>
+representation. eg., When labels values are [2, 0, 1],
+<code>y_true</code> = [[0, 0, 1], [1, 0, 0], [0, 1, 0]].</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.
+from_logits: (Optional) Whether output is expected to be a logits tensor.
+By default, we consider that output encodes a probability distribution.
+label_smoothing: (Optional) Float in [0, 1]. When &gt; 0, label values are
+smoothed, meaning the confidence on label values are relaxed. e.g.
+<code>label_smoothing=0.2</code> means that we will use a value of <code>0.1</code> for label
+<code>0</code> and <code>0.9</code> for label <code>1</code>"</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<h1 id="epsilon-1e-7-y-y_true-y-y_pred">EPSILON = 1e-7, y = y_true, y` = y_pred</h1>
+<h1 id="y-clip_opsclip_by_valueoutput-epsilon-1-epsilon">y` = clip_ops.clip_by_value(output, EPSILON, 1. - EPSILON)</h1>
+<h1 id="y-005-095-epsilon-01-08-01">y` = [[0.05, 0.95, EPSILON], [0.1, 0.8, 0.1]]</h1>
+<h1 id="xent-sumy-logy-axis-1">xent = -sum(y * log(y'), axis = -1)</h1>
+<h1 id="-log-095-log-01">= -((log 0.95), (log 0.1))</h1>
+<h1 id="0051-2302">= [0.051, 2.302]</h1>
+<h1 id="reduced-xent-0051-2302-2">Reduced xent = (0.051 + 2.302) / 2</h1>
+<p>m = tf.keras.metrics.CategoricalCrossentropy()
+m.update_state([[0, 1, 0], [0, 0, 1]],
+...                [[0.05, 0.95, 0], [0.1, 0.8, 0.1]])
+m.result().numpy()
+1.1769392</p>
+<p>m.reset_states()
+m.update_state([[0, 1, 0], [0, 0, 1]],
+...                [[0.05, 0.95, 0], [0.1, 0.8, 0.1]],
+...                sample_weight=tf.constant([0.3, 0.7]))
+m.result().numpy()
+1.6271976</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+  optimizer='sgd',
+  loss='mse',
+  metrics=[tf.keras.metrics.CategoricalCrossentropy()])
+</code></pre>
+<hr />
+<h3 id="categoricalhinge-class">CategoricalHinge class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.CategoricalHinge(name=&quot;categorical_hinge&quot;, dtype=None)
+</code></pre>
+<p>Computes the categorical hinge metric between <code>y_true</code> and <code>y_pred</code>.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.CategoricalHinge()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]])
+m.result().numpy()
+1.4000001</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+1.2</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.CategoricalHinge()])
+</code></pre>
+<hr />
+<h3 id="cosinesimilarity-class">CosineSimilarity class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.CosineSimilarity(name=&quot;cosine_similarity&quot;, dtype=None, axis=-1)
+</code></pre>
+<p>Computes the cosine similarity between the labels and predictions.</p>
+<p><code>cosine similarity = (a . b) / ||a|| ||b||</code></p>
+<p>See: <a href="https://en.wikipedia.org/wiki/Cosine_similarity">Cosine Similarity</a>.</p>
+<p>This metric keeps the average cosine similarity between <code>predictions</code> and
+<code>labels</code> over a stream of data.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.
+axis: (Optional) Defaults to -1. The dimension along which the cosine
+similarity is computed.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<h1 id="l2_normy_true-0-1-11414-11414">l2_norm(y_true) = [[0., 1.], [1./1.414], 1./1.414]]]</h1>
+<h1 id="l2_normy_pred-1-0-11414-11414">l2_norm(y_pred) = [[1., 0.], [1./1.414], 1./1.414]]]</h1>
+<h1 id="l2_normy_true-l2_normy_pred-0-0-05-05">l2_norm(y_true) . l2_norm(y_pred) = [[0., 0.], [0.5, 0.5]]</h1>
+<h1 id="result-meansuml2_normy_true-l2_normy_pred-axis1">result = mean(sum(l2_norm(y_true) . l2_norm(y_pred), axis=1))</h1>
+<h1 id="0-0-05-05-2">= ((0. + 0.) +  (0.5 + 0.5)) / 2</h1>
+<p>m = tf.keras.metrics.CosineSimilarity(axis=1)
+m.update_state([[0., 1.], [1., 1.]], [[1., 0.], [1., 1.]])
+m.result().numpy()
+0.49999997</p>
+<p>m.reset_states()
+m.update_state([[0., 1.], [1., 1.]], [[1., 0.], [1., 1.]],
+...                sample_weight=[0.3, 0.7])
+m.result().numpy()
+0.6999999</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.CosineSimilarity(axis=1)])
+</code></pre>
+<hr />
+<h3 id="falsenegatives-class">FalseNegatives class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.FalseNegatives(thresholds=None, name=None, dtype=None)
+</code></pre>
+<p>Calculates the number of false negatives.</p>
+<p>If <code>sample_weight</code> is given, calculates the sum of the weights of
+false negatives. This metric creates one local variable, <code>accumulator</code>
+that is used to keep track of the number of false negatives.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+thresholds: (Optional) Defaults to 0.5. A float value or a python
+list/tuple of float threshold values in [0, 1]. A threshold is compared
+with prediction values to determine the truth value of predictions
+(i.e., above the threshold is <code>true</code>, below is <code>false</code>). One metric
+value is generated for each threshold value.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.FalseNegatives()
+m.update_state([0, 1, 1, 1], [0, 1, 0, 0])
+m.result().numpy()
+2.0</p>
+<p>m.reset_states()
+m.update_state([0, 1, 1, 1], [0, 1, 0, 0], sample_weight=[0, 0, 1, 0])
+m.result().numpy()
+1.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.FalseNegatives()])
+</code></pre>
+<hr />
+<h3 id="falsepositives-class">FalsePositives class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.FalsePositives(thresholds=None, name=None, dtype=None)
+</code></pre>
+<p>Calculates the number of false positives.</p>
+<p>If <code>sample_weight</code> is given, calculates the sum of the weights of
+false positives. This metric creates one local variable, <code>accumulator</code>
+that is used to keep track of the number of false positives.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+thresholds: (Optional) Defaults to 0.5. A float value or a python
+list/tuple of float threshold values in [0, 1]. A threshold is compared
+with prediction values to determine the truth value of predictions
+(i.e., above the threshold is <code>true</code>, below is <code>false</code>). One metric
+value is generated for each threshold value.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.FalsePositives()
+m.update_state([0, 1, 0, 0], [0, 0, 1, 1])
+m.result().numpy()
+2.0</p>
+<p>m.reset_states()
+m.update_state([0, 1, 0, 0], [0, 0, 1, 1], sample_weight=[0, 0, 1, 0])
+m.result().numpy()
+1.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.FalsePositives()])
+</code></pre>
+<hr />
+<h3 id="hinge-class">Hinge class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.Hinge(name=&quot;hinge&quot;, dtype=None)
+</code></pre>
+<p>Computes the hinge metric between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>y_true</code> values are expected to be -1 or 1. If binary (0 or 1) labels are
+provided we will convert them to -1 or 1.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.Hinge()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]])
+m.result().numpy()
+1.3</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+1.1</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss='mse', metrics=[tf.keras.metrics.Hinge()])
+</code></pre>
+<hr />
+<h3 id="kl_divergence-function">kl_divergence function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.KLD(y_true, y_pred)
+</code></pre>
+<p>Computes Kullback-Leibler divergence loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_true * log(y_true / y_pred)</code></p>
+<p>See: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3)).astype(np.float64)
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.kullback_leibler_divergence(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = tf.keras.backend.clip(y_true, 1e-7, 1)
+y_pred = tf.keras.backend.clip(y_pred, 1e-7, 1)
+assert np.array_equal(
+...     loss.numpy(), np.sum(y_true * np.log(y_true / y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of true targets.
+y_pred: Tensor of predicted targets.</p>
+<p>Returns:
+A <code>Tensor</code> with loss.</p>
+<p>Raises:
+TypeError: If <code>y_true</code> cannot be cast to the <code>y_pred.dtype</code>.</p>
+<hr />
+<h3 id="kldivergence-class">KLDivergence class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.KLDivergence(name=&quot;kullback_leibler_divergence&quot;, dtype=None)
+</code></pre>
+<p>Computes Kullback-Leibler divergence metric between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>metric = y_true * log(y_true / y_pred)</code></p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.KLDivergence()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]])
+m.result().numpy()
+0.45814306</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+0.9162892</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.KLDivergence()])
+</code></pre>
+<hr />
+<h3 id="logcosherror-class">LogCoshError class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.LogCoshError(name=&quot;logcosh&quot;, dtype=None)
+</code></pre>
+<p>Computes the logarithm of the hyperbolic cosine of the prediction error.</p>
+<p><code>logcosh = log((exp(x) + exp(-x))/2)</code>, where x is the error (y_pred - y_true)</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.LogCoshError()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]])
+m.result().numpy()
+0.10844523</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+0.21689045</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.LogCoshError()])
+</code></pre>
+<hr />
+<h3 id="mean_absolute_error-function">mean_absolute_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MAE(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute error between labels and predictions.</p>
+<p><code>loss = mean(abs(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.abs(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_percentage_error-function">mean_absolute_percentage_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MAPE(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute percentage error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = 100 * mean(abs((y_true - y_pred) / y_true), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_true = np.maximum(y_true, 1e-7)  # Prevent division by zero
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_percentage_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     100. * np.mean(np.abs((y_true - y_pred) / y_true), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute percentage error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_error-function">mean_squared_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MSE(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared error between labels and predictions.</p>
+<p>After computing the squared distance between the inputs, the mean value over
+the last dimension is returned.</p>
+<p><code>loss = mean(square(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.square(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_logarithmic_error-function">mean_squared_logarithmic_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MSLE(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared logarithmic error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(square(log(y_true + 1) - log(y_pred + 1)), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_logarithmic_error(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = np.maximum(y_true, 1e-7)
+y_pred = np.maximum(y_pred, 1e-7)
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(
+...         np.square(np.log(y_true + 1.) - np.log(y_pred + 1.)), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared logarithmic error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean-class">Mean class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.Mean(name=&quot;mean&quot;, dtype=None)
+</code></pre>
+<p>Computes the (weighted) mean of the given values.</p>
+<p>For example, if values is [1, 3, 5, 7] then the mean is 4.
+If the weights were specified as [1, 1, 0, 0] then the mean would be 2.</p>
+<p>This metric creates two variables, <code>total</code> and <code>count</code> that are used to
+compute the average of <code>values</code>. This average is ultimately returned as <code>mean</code>
+which is an idempotent operation that simply divides <code>total</code> by <code>count</code>.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.Mean()
+m.update_state([1, 3, 5, 7])
+m.result().numpy()
+4.0
+m.reset_states()
+m.update_state([1, 3, 5, 7], sample_weight=[1, 1, 0, 0])
+m.result().numpy()
+2.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.add_metric(tf.keras.metrics.Mean(name='mean_1')(outputs))
+model.compile(optimizer='sgd', loss='mse')
+</code></pre>
+<hr />
+<h3 id="meanabsoluteerror-class">MeanAbsoluteError class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MeanAbsoluteError(name=&quot;mean_absolute_error&quot;, dtype=None)
+</code></pre>
+<p>Computes the mean absolute error between the labels and predictions.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.MeanAbsoluteError()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]])
+m.result().numpy()
+0.25</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+0.5</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.MeanAbsoluteError()])
+</code></pre>
+<hr />
+<h3 id="meanabsolutepercentageerror-class">MeanAbsolutePercentageError class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MeanAbsolutePercentageError(name=&quot;mean_absolute_percentage_error&quot;, dtype=None)
+</code></pre>
+<p>Computes the mean absolute percentage error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.MeanAbsolutePercentageError()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]])
+m.result().numpy()
+250000000.0</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+500000000.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.MeanAbsolutePercentageError()])
+</code></pre>
+<hr />
+<h3 id="meaniou-class">MeanIoU class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MeanIoU(num_classes, name=None, dtype=None)
+</code></pre>
+<p>Computes the mean Intersection-Over-Union metric.</p>
+<p>Mean Intersection-Over-Union is a common evaluation metric for semantic image
+segmentation, which first computes the IOU for each semantic class and then
+computes the average over classes. IOU is defined as follows:
+IOU = true_positive / (true_positive + false_positive + false_negative).
+The predictions are accumulated in a confusion matrix, weighted by
+<code>sample_weight</code> and the metric is then calculated from it.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+num_classes: The possible number of labels the prediction task can have.
+This value must be provided, since a confusion matrix of dimension =
+[num_classes, num_classes] will be allocated.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<h1 id="cm-1-1">cm = [[1, 1],</h1>
+<h1 id="1-1">[1, 1]]</h1>
+<h1 id="sum_row-2-2-sum_col-2-2-true_positives-1-1">sum_row = [2, 2], sum_col = [2, 2], true_positives = [1, 1]</h1>
+<h1 id="iou-true_positives-sum_row-sum_col-true_positives">iou = true_positives / (sum_row + sum_col - true_positives))</h1>
+<h1 id="result-1-2-2-1-1-2-2-1-2-033">result = (1 / (2 + 2 - 1) + 1 / (2 + 2 - 1)) / 2 = 0.33</h1>
+<p>m = tf.keras.metrics.MeanIoU(num_classes=2)
+m.update_state([0, 0, 1, 1], [0, 1, 0, 1])
+m.result().numpy()
+0.33333334</p>
+<p>m.reset_states()
+m.update_state([0, 0, 1, 1], [0, 1, 0, 1],
+...                sample_weight=[0.3, 0.3, 0.3, 0.1])
+m.result().numpy()
+0.23809525</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+  optimizer='sgd',
+  loss='mse',
+  metrics=[tf.keras.metrics.MeanIoU(num_classes=2)])
+</code></pre>
+<hr />
+<h3 id="meanrelativeerror-class">MeanRelativeError class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MeanRelativeError(normalizer, name=None, dtype=None)
+</code></pre>
+<p>Computes the mean relative error by normalizing with the given values.</p>
+<p>This metric creates two local variables, <code>total</code> and <code>count</code> that are used to
+compute the mean relative error. This is weighted by <code>sample_weight</code>, and
+it is ultimately returned as <code>mean_relative_error</code>:
+an idempotent operation that simply divides <code>total</code> by <code>count</code>.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+normalizer: The normalizer values with same shape as predictions.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.MeanRelativeError(normalizer=[1, 3, 2, 3])
+m.update_state([1, 3, 2, 3], [2, 4, 6, 8])</p>
+<h1 id="metric-meany_pred-y_true-normalizer">metric = mean(|y_pred - y_true| / normalizer)</h1>
+<h1 id="mean1-1-4-5-1-3-2-3-mean1-13-2-53">= mean([1, 1, 4, 5] / [1, 3, 2, 3]) = mean([1, 1/3, 2, 5/3])</h1>
+<h1 id="54-125">= 5/4 = 1.25</h1>
+<p>m.result().numpy()
+1.25</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+  optimizer='sgd',
+  loss='mse',
+  metrics=[tf.keras.metrics.MeanRelativeError(normalizer=[1, 3])])
+</code></pre>
+<hr />
+<h3 id="meansquarederror-class">MeanSquaredError class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MeanSquaredError(name=&quot;mean_squared_error&quot;, dtype=None)
+</code></pre>
+<p>Computes the mean squared error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.MeanSquaredError()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]])
+m.result().numpy()
+0.25</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+0.5</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.MeanSquaredError()])
+</code></pre>
+<hr />
+<h3 id="meansquaredlogarithmicerror-class">MeanSquaredLogarithmicError class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MeanSquaredLogarithmicError(name=&quot;mean_squared_logarithmic_error&quot;, dtype=None)
+</code></pre>
+<p>Computes the mean squared logarithmic error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.MeanSquaredLogarithmicError()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]])
+m.result().numpy()
+0.12011322</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+0.24022643</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.MeanSquaredLogarithmicError()])
+</code></pre>
+<hr />
+<h3 id="meantensor-class">MeanTensor class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.MeanTensor(name=&quot;mean_tensor&quot;, dtype=None)
+</code></pre>
+<p>Computes the element-wise (weighted) mean of the given tensors.</p>
+<p><code>MeanTensor</code> returns a tensor with the same shape of the input tensors. The
+mean value is updated by keeping local variables <code>total</code> and <code>count</code>. The
+<code>total</code> tracks the sum of the weighted values, and <code>count</code> stores the sum of
+the weighted counts.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.MeanTensor()
+m.update_state([0, 1, 2, 3])
+m.update_state([4, 5, 6, 7])
+m.result().numpy()
+array([2., 3., 4., 5.], dtype=float32)</p>
+<p>m.update_state([12, 10, 8, 6], sample_weight= [0, 0.2, 0.5, 1])
+m.result().numpy()
+array([2.       , 3.6363635, 4.8      , 5.3333335], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr />
+<h3 id="metric-class">Metric class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.Metric(name=None, dtype=None, **kwargs)
+</code></pre>
+<p>Encapsulates metric logic and state.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.
+**kwargs: Additional layer keywords arguments.</p>
+<p>Standalone usage:</p>
+<pre><code class="language-python">m = SomeMetric(...)
+for input in ...:
+  m.update_state(input)
+print('Final result: ', m.result().numpy())
+</code></pre>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model = tf.keras.Sequential()
+model.add(tf.keras.layers.Dense(64, activation='relu'))
+model.add(tf.keras.layers.Dense(64, activation='relu'))
+model.add(tf.keras.layers.Dense(10, activation='softmax'))
+
+model.compile(optimizer=tf.keras.optimizers.RMSprop(0.01),
+              loss=tf.keras.losses.CategoricalCrossentropy(),
+              metrics=[tf.keras.metrics.CategoricalAccuracy()])
+
+data = np.random.random((1000, 32))
+labels = np.random.random((1000, 10))
+
+dataset = tf.data.Dataset.from_tensor_slices((data, labels))
+dataset = dataset.batch(32)
+
+model.fit(dataset, epochs=10)
+</code></pre>
+<p>To be implemented by subclasses:
+* <code>__init__()</code>: All state variables should be created in this method by
+calling <code>self.add_weight()</code> like: <code>self.var = self.add_weight(...)</code>
+* <code>update_state()</code>: Has all updates to the state variables like:
+self.var.assign_add(...).
+* <code>result()</code>: Computes and returns a value for the metric
+from the state variables.</p>
+<p>Example subclass implementation:</p>
+<pre><code class="language-python">class BinaryTruePositives(tf.keras.metrics.Metric):
+
+  def __init__(self, name='binary_true_positives', **kwargs):
+    super(BinaryTruePositives, self).__init__(name=name, **kwargs)
+    self.true_positives = self.add_weight(name='tp', initializer='zeros')
+
+  def update_state(self, y_true, y_pred, sample_weight=None):
+    y_true = tf.cast(y_true, tf.bool)
+    y_pred = tf.cast(y_pred, tf.bool)
+
+    values = tf.logical_and(tf.equal(y_true, True), tf.equal(y_pred, True))
+    values = tf.cast(values, self.dtype)
+    if sample_weight is not None:
+      sample_weight = tf.cast(sample_weight, self.dtype)
+      sample_weight = tf.broadcast_to(sample_weight, values.shape)
+      values = tf.multiply(values, sample_weight)
+    self.true_positives.assign_add(tf.reduce_sum(values))
+
+  def result(self):
+    return self.true_positives
+</code></pre>
+<hr />
+<h3 id="poisson-class">Poisson class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.Poisson(name=&quot;poisson&quot;, dtype=None)
+</code></pre>
+<p>Computes the Poisson metric between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>metric = y_pred - y_true * log(y_pred)</code></p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.Poisson()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]])
+m.result().numpy()
+0.49999997</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+0.99999994</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.Poisson()])
+</code></pre>
+<hr />
+<h3 id="precision-class">Precision class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.Precision(thresholds=None, top_k=None, class_id=None, name=None, dtype=None)
+</code></pre>
+<p>Computes the precision of the predictions with respect to the labels.</p>
+<p>The metric creates two local variables, <code>true_positives</code> and <code>false_positives</code>
+that are used to compute the precision. This value is ultimately returned as
+<code>precision</code>, an idempotent operation that simply divides <code>true_positives</code>
+by the sum of <code>true_positives</code> and <code>false_positives</code>.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>If <code>top_k</code> is set, we'll calculate precision as how often on average a class
+among the top-k classes with the highest predicted values of a batch entry is
+correct and can be found in the label for that entry.</p>
+<p>If <code>class_id</code> is specified, we calculate precision by considering only the
+entries in the batch for which <code>class_id</code> is above the threshold and/or in the
+top-k highest predictions, and computing the fraction of them for which
+<code>class_id</code> is indeed a correct label.</p>
+<p>Args:
+thresholds: (Optional) A float value or a python list/tuple of float
+threshold values in [0, 1]. A threshold is compared with prediction
+values to determine the truth value of predictions (i.e., above the
+threshold is <code>true</code>, below is <code>false</code>). One metric value is generated
+for each threshold value. If neither thresholds nor top_k are set, the
+default is to calculate precision with <code>thresholds=0.5</code>.
+top_k: (Optional) Unset by default. An int value specifying the top-k
+predictions to consider when calculating precision.
+class_id: (Optional) Integer class ID for which we want binary metrics.
+This must be in the half-open interval <code>[0, num_classes)</code>, where
+<code>num_classes</code> is the last dimension of predictions.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.Precision()
+m.update_state([0, 1, 1, 1], [1, 0, 1, 1])
+m.result().numpy()
+0.6666667</p>
+<p>m.reset_states()
+m.update_state([0, 1, 1, 1], [1, 0, 1, 1], sample_weight=[0, 0, 1, 0])
+m.result().numpy()
+1.0</p>
+<h1 id="with-top_k2-it-will-calculate-precision-over-y_true2-and-y_pred2">With top_k=2, it will calculate precision over y_true[:2] and y_pred[:2]</h1>
+<p>m = tf.keras.metrics.Precision(top_k=2)
+m.update_state([0, 0, 1, 1], [1, 1, 1, 1])
+m.result().numpy()
+0.0</p>
+<h1 id="with-top_k4-it-will-calculate-precision-over-y_true4-and-y_pred4">With top_k=4, it will calculate precision over y_true[:4] and y_pred[:4]</h1>
+<p>m = tf.keras.metrics.Precision(top_k=4)
+m.update_state([0, 0, 1, 1], [1, 1, 1, 1])
+m.result().numpy()
+0.5</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.Precision()])
+</code></pre>
+<hr />
+<h3 id="precisionatrecall-class">PrecisionAtRecall class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.PrecisionAtRecall(recall, num_thresholds=200, name=None, dtype=None)
+</code></pre>
+<p>Computes best precision where recall is &gt;= specified value.</p>
+<p>This metric creates four local variables, <code>true_positives</code>, <code>true_negatives</code>,
+<code>false_positives</code> and <code>false_negatives</code> that are used to compute the
+precision at the given recall. The threshold for the given recall
+value is computed and used to evaluate the corresponding precision.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+recall: A scalar value in range <code>[0, 1]</code>.
+num_thresholds: (Optional) Defaults to 200. The number of thresholds to
+use for matching the given recall.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.PrecisionAtRecall(0.5)
+m.update_state([0, 0, 0, 1, 1], [0, 0.3, 0.8, 0.3, 0.8])
+m.result().numpy()
+0.5</p>
+<p>m.reset_states()
+m.update_state([0, 0, 0, 1, 1], [0, 0.3, 0.8, 0.3, 0.8],
+...                sample_weight=[2, 2, 2, 1, 1])
+m.result().numpy()
+0.33333333</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.PrecisionAtRecall(recall=0.8)])
+</code></pre>
+<hr />
+<h3 id="recall-class">Recall class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.Recall(thresholds=None, top_k=None, class_id=None, name=None, dtype=None)
+</code></pre>
+<p>Computes the recall of the predictions with respect to the labels.</p>
+<p>This metric creates two local variables, <code>true_positives</code> and
+<code>false_negatives</code>, that are used to compute the recall. This value is
+ultimately returned as <code>recall</code>, an idempotent operation that simply divides
+<code>true_positives</code> by the sum of <code>true_positives</code> and <code>false_negatives</code>.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>If <code>top_k</code> is set, recall will be computed as how often on average a class
+among the labels of a batch entry is in the top-k predictions.</p>
+<p>If <code>class_id</code> is specified, we calculate recall by considering only the
+entries in the batch for which <code>class_id</code> is in the label, and computing the
+fraction of them for which <code>class_id</code> is above the threshold and/or in the
+top-k predictions.</p>
+<p>Args:
+thresholds: (Optional) A float value or a python list/tuple of float
+threshold values in [0, 1]. A threshold is compared with prediction
+values to determine the truth value of predictions (i.e., above the
+threshold is <code>true</code>, below is <code>false</code>). One metric value is generated
+for each threshold value. If neither thresholds nor top_k are set, the
+default is to calculate recall with <code>thresholds=0.5</code>.
+top_k: (Optional) Unset by default. An int value specifying the top-k
+predictions to consider when calculating recall.
+class_id: (Optional) Integer class ID for which we want binary metrics.
+This must be in the half-open interval <code>[0, num_classes)</code>, where
+<code>num_classes</code> is the last dimension of predictions.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.Recall()
+m.update_state([0, 1, 1, 1], [1, 0, 1, 1])
+m.result().numpy()
+0.6666667</p>
+<p>m.reset_states()
+m.update_state([0, 1, 1, 1], [1, 0, 1, 1], sample_weight=[0, 0, 1, 0])
+m.result().numpy()
+1.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.Recall()])
+</code></pre>
+<hr />
+<h3 id="recallatprecision-class">RecallAtPrecision class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.RecallAtPrecision(precision, num_thresholds=200, name=None, dtype=None)
+</code></pre>
+<p>Computes best recall where precision is &gt;= specified value.</p>
+<p>For a given score-label-distribution the required precision might not
+be achievable, in this case 0.0 is returned as recall.</p>
+<p>This metric creates four local variables, <code>true_positives</code>, <code>true_negatives</code>,
+<code>false_positives</code> and <code>false_negatives</code> that are used to compute the
+recall at the given precision. The threshold for the given precision
+value is computed and used to evaluate the corresponding recall.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+precision: A scalar value in range <code>[0, 1]</code>.
+num_thresholds: (Optional) Defaults to 200. The number of thresholds to
+use for matching the given precision.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.RecallAtPrecision(0.8)
+m.update_state([0, 0, 1, 1], [0, 0.5, 0.3, 0.9])
+m.result().numpy()
+0.5</p>
+<p>m.reset_states()
+m.update_state([0, 0, 1, 1], [0, 0.5, 0.3, 0.9],
+...                sample_weight=[1, 0, 0, 1])
+m.result().numpy()
+1.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.RecallAtPrecision(precision=0.8)])
+</code></pre>
+<hr />
+<h3 id="rootmeansquarederror-class">RootMeanSquaredError class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.RootMeanSquaredError(name=&quot;root_mean_squared_error&quot;, dtype=None)
+</code></pre>
+<p>Computes root mean squared error metric between <code>y_true</code> and <code>y_pred</code>.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.RootMeanSquaredError()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]])
+m.result().numpy()
+0.5</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[1, 1], [0, 0]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+0.70710677</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.RootMeanSquaredError()])
+</code></pre>
+<hr />
+<h3 id="sensitivityatspecificity-class">SensitivityAtSpecificity class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.SensitivityAtSpecificity(specificity, num_thresholds=200, name=None, dtype=None)
+</code></pre>
+<p>Computes best sensitivity where specificity is &gt;= specified value.</p>
+<p>the sensitivity at a given specificity.</p>
+<p><code>Sensitivity</code> measures the proportion of actual positives that are correctly
+identified as such (tp / (tp + fn)).
+<code>Specificity</code> measures the proportion of actual negatives that are correctly
+identified as such (tn / (tn + fp)).</p>
+<p>This metric creates four local variables, <code>true_positives</code>, <code>true_negatives</code>,
+<code>false_positives</code> and <code>false_negatives</code> that are used to compute the
+sensitivity at the given specificity. The threshold for the given specificity
+value is computed and used to evaluate the corresponding sensitivity.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>For additional information about specificity and sensitivity, see
+<a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">the following</a>.</p>
+<p>Args:
+specificity: A scalar value in range <code>[0, 1]</code>.
+num_thresholds: (Optional) Defaults to 200. The number of thresholds to
+use for matching the given specificity.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.SensitivityAtSpecificity(0.5)
+m.update_state([0, 0, 0, 1, 1], [0, 0.3, 0.8, 0.3, 0.8])
+m.result().numpy()
+0.5</p>
+<p>m.reset_states()
+m.update_state([0, 0, 0, 1, 1], [0, 0.3, 0.8, 0.3, 0.8],
+...                sample_weight=[1, 1, 2, 2, 1])
+m.result().numpy()
+0.333333</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.SensitivityAtSpecificity()])
+</code></pre>
+<hr />
+<h3 id="sparsecategoricalaccuracy-class">SparseCategoricalAccuracy class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.SparseCategoricalAccuracy(name=&quot;sparse_categorical_accuracy&quot;, dtype=None)
+</code></pre>
+<p>Calculates how often predictions matches integer labels.</p>
+<pre><code class="language-python">acc = np.dot(sample_weight, np.equal(y_true, np.argmax(y_pred, axis=1))
+</code></pre>
+<p>You can provide logits of classes as <code>y_pred</code>, since argmax of
+logits and probabilities are same.</p>
+<p>This metric creates two local variables, <code>total</code> and <code>count</code> that are used to
+compute the frequency with which <code>y_pred</code> matches <code>y_true</code>. This frequency is
+ultimately returned as <code>sparse categorical accuracy</code>: an idempotent operation
+that simply divides <code>total</code> by <code>count</code>.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.SparseCategoricalAccuracy()
+m.update_state([[2], [1]], [[0.1, 0.6, 0.3], [0.05, 0.95, 0]])
+m.result().numpy()
+0.5</p>
+<p>m.reset_states()
+m.update_state([[2], [1]], [[0.1, 0.6, 0.3], [0.05, 0.95, 0]],
+...                sample_weight=[0.7, 0.3])
+m.result().numpy()
+0.3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.SparseCategoricalAccuracy()])
+</code></pre>
+<hr />
+<h3 id="sparsecategoricalcrossentropy-class">SparseCategoricalCrossentropy class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.SparseCategoricalCrossentropy(
+    name=&quot;sparse_categorical_crossentropy&quot;, dtype=None, from_logits=False, axis=-1
+)
+</code></pre>
+<p>Computes the crossentropy metric between the labels and predictions.</p>
+<p>Use this crossentropy metric when there are two or more label classes.
+We expect labels to be provided as integers. If you want to provide labels
+using <code>one-hot</code> representation, please use <code>CategoricalCrossentropy</code> metric.
+There should be <code># classes</code> floating point values per feature for <code>y_pred</code>
+and a single floating point value per feature for <code>y_true</code>.</p>
+<p>In the snippet below, there is a single floating point value per example for
+<code>y_true</code> and <code># classes</code> floating pointing values per example for <code>y_pred</code>.
+The shape of <code>y_true</code> is <code>[batch_size]</code> and the shape of <code>y_pred</code> is
+<code>[batch_size, num_classes]</code>.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.
+from_logits: (Optional) Whether output is expected to be a logits tensor.
+By default, we consider that output encodes a probability distribution.
+axis: (Optional) Defaults to -1. The dimension along which the metric is
+computed.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<h1 id="y_true-one_hoty_true-0-1-0-0-0-1">y_true = one_hot(y_true) = [[0, 1, 0], [0, 0, 1]]</h1>
+<h1 id="logits-logy_pred">logits = log(y_pred)</h1>
+<h1 id="softmax-explogits-sumexplogits-axis-1">softmax = exp(logits) / sum(exp(logits), axis=-1)</h1>
+<h1 id="softmax-005-095-epsilon-01-08-01">softmax = [[0.05, 0.95, EPSILON], [0.1, 0.8, 0.1]]</h1>
+<h1 id="xent-sumy-logsoftmax-1">xent = -sum(y * log(softmax), 1)</h1>
+<h1 id="logsoftmax-29957-00513-161181">log(softmax) = [[-2.9957, -0.0513, -16.1181],</h1>
+<h1 id="-23026-02231-23026">[-2.3026, -0.2231, -2.3026]]</h1>
+<h1 id="y_true-logsoftmax-0-00513-0-0-0-23026">y_true * log(softmax) = [[0, -0.0513, 0], [0, 0, -2.3026]]</h1>
+<h1 id="xent-00513-23026">xent = [0.0513, 2.3026]</h1>
+<h1 id="reduced-xent-00513-23026-2">Reduced xent = (0.0513 + 2.3026) / 2</h1>
+<p>m = tf.keras.metrics.SparseCategoricalCrossentropy()
+m.update_state([1, 2],
+...                [[0.05, 0.95, 0], [0.1, 0.8, 0.1]])
+m.result().numpy()
+1.1769392</p>
+<p>m.reset_states()
+m.update_state([1, 2],
+...                [[0.05, 0.95, 0], [0.1, 0.8, 0.1]],
+...                sample_weight=tf.constant([0.3, 0.7]))
+m.result().numpy()
+1.6271976</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+  optimizer='sgd',
+  loss='mse',
+  metrics=[tf.keras.metrics.SparseCategoricalCrossentropy()])
+</code></pre>
+<hr />
+<h3 id="sparsetopkcategoricalaccuracy-class">SparseTopKCategoricalAccuracy class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.SparseTopKCategoricalAccuracy(
+    k=5, name=&quot;sparse_top_k_categorical_accuracy&quot;, dtype=None
+)
+</code></pre>
+<p>Computes how often integer targets are in the top <code>K</code> predictions.</p>
+<p>Args:
+k: (Optional) Number of top elements to look at for computing accuracy.
+Defaults to 5.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.SparseTopKCategoricalAccuracy(k=1)
+m.update_state([2, 1], [[0.1, 0.9, 0.8], [0.05, 0.95, 0]])
+m.result().numpy()
+0.5</p>
+<p>m.reset_states()
+m.update_state([2, 1], [[0.1, 0.9, 0.8], [0.05, 0.95, 0]],
+...                sample_weight=[0.7, 0.3])
+m.result().numpy()
+0.3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+  optimizer='sgd',
+  loss='mse',
+  metrics=[tf.keras.metrics.SparseTopKCategoricalAccuracy()])
+</code></pre>
+<hr />
+<h3 id="specificityatsensitivity-class">SpecificityAtSensitivity class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.SpecificityAtSensitivity(sensitivity, num_thresholds=200, name=None, dtype=None)
+</code></pre>
+<p>Computes best specificity where sensitivity is &gt;= specified value.</p>
+<p><code>Sensitivity</code> measures the proportion of actual positives that are correctly
+identified as such (tp / (tp + fn)).
+<code>Specificity</code> measures the proportion of actual negatives that are correctly
+identified as such (tn / (tn + fp)).</p>
+<p>This metric creates four local variables, <code>true_positives</code>, <code>true_negatives</code>,
+<code>false_positives</code> and <code>false_negatives</code> that are used to compute the
+specificity at the given sensitivity. The threshold for the given sensitivity
+value is computed and used to evaluate the corresponding specificity.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>For additional information about specificity and sensitivity, see
+<a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">the following</a>.</p>
+<p>Args:
+sensitivity: A scalar value in range <code>[0, 1]</code>.
+num_thresholds: (Optional) Defaults to 200. The number of thresholds to
+use for matching the given sensitivity.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.SpecificityAtSensitivity(0.5)
+m.update_state([0, 0, 0, 1, 1], [0, 0.3, 0.8, 0.3, 0.8])
+m.result().numpy()
+0.66666667</p>
+<p>m.reset_states()
+m.update_state([0, 0, 0, 1, 1], [0, 0.3, 0.8, 0.3, 0.8],
+...                sample_weight=[1, 1, 2, 2, 2])
+m.result().numpy()
+0.5</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.SpecificityAtSensitivity()])
+</code></pre>
+<hr />
+<h3 id="squaredhinge-class">SquaredHinge class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.SquaredHinge(name=&quot;squared_hinge&quot;, dtype=None)
+</code></pre>
+<p>Computes the squared hinge metric between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>y_true</code> values are expected to be -1 or 1. If binary (0 or 1) labels are
+provided we will convert them to -1 or 1.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.SquaredHinge()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]])
+m.result().numpy()
+1.86</p>
+<p>m.reset_states()
+m.update_state([[0, 1], [0, 0]], [[0.6, 0.4], [0.4, 0.6]],
+...                sample_weight=[1, 0])
+m.result().numpy()
+1.46</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(
+    optimizer='sgd',
+    loss='mse',
+    metrics=[tf.keras.metrics.SquaredHinge()])
+</code></pre>
+<hr />
+<h3 id="sum-class">Sum class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.Sum(name=&quot;sum&quot;, dtype=None)
+</code></pre>
+<p>Computes the (weighted) sum of the given values.</p>
+<p>For example, if values is [1, 3, 5, 7] then the sum is 16.
+If the weights were specified as [1, 1, 0, 0] then the sum would be 4.</p>
+<p>This metric creates one variable, <code>total</code>, that is used to compute the sum of
+<code>values</code>. This is ultimately returned as <code>sum</code>.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.  Use <code>sample_weight</code> of 0
+to mask values.</p>
+<p>Args:
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.Sum()
+m.update_state([1, 3, 5, 7])
+m.result().numpy()
+16.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.add_metric(tf.keras.metrics.Sum(name='sum_1')(outputs))
+model.compile(optimizer='sgd', loss='mse')
+</code></pre>
+<hr />
+<h3 id="topkcategoricalaccuracy-class">TopKCategoricalAccuracy class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.TopKCategoricalAccuracy(k=5, name=&quot;top_k_categorical_accuracy&quot;, dtype=None)
+</code></pre>
+<p>Computes how often targets are in the top <code>K</code> predictions.</p>
+<p>Args:
+k: (Optional) Number of top elements to look at for computing accuracy.
+Defaults to 5.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.TopKCategoricalAccuracy(k=1)
+m.update_state([[0, 0, 1], [0, 1, 0]],
+...                [[0.1, 0.9, 0.8], [0.05, 0.95, 0]])
+m.result().numpy()
+0.5</p>
+<p>m.reset_states()
+m.update_state([[0, 0, 1], [0, 1, 0]],
+...                [[0.1, 0.9, 0.8], [0.05, 0.95, 0]],
+...                sample_weight=[0.7, 0.3])
+m.result().numpy()
+0.3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.TopKCategoricalAccuracy()])
+</code></pre>
+<hr />
+<h3 id="truenegatives-class">TrueNegatives class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.TrueNegatives(thresholds=None, name=None, dtype=None)
+</code></pre>
+<p>Calculates the number of true negatives.</p>
+<p>If <code>sample_weight</code> is given, calculates the sum of the weights of
+true negatives. This metric creates one local variable, <code>accumulator</code>
+that is used to keep track of the number of true negatives.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+thresholds: (Optional) Defaults to 0.5. A float value or a python
+list/tuple of float threshold values in [0, 1]. A threshold is compared
+with prediction values to determine the truth value of predictions
+(i.e., above the threshold is <code>true</code>, below is <code>false</code>). One metric
+value is generated for each threshold value.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.TrueNegatives()
+m.update_state([0, 1, 0, 0], [1, 1, 0, 0])
+m.result().numpy()
+2.0</p>
+<p>m.reset_states()
+m.update_state([0, 1, 0, 0], [1, 1, 0, 0], sample_weight=[0, 0, 1, 0])
+m.result().numpy()
+1.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.TrueNegatives()])
+</code></pre>
+<hr />
+<h3 id="truepositives-class">TruePositives class</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.TruePositives(thresholds=None, name=None, dtype=None)
+</code></pre>
+<p>Calculates the number of true positives.</p>
+<p>If <code>sample_weight</code> is given, calculates the sum of the weights of
+true positives. This metric creates one local variable, <code>true_positives</code>
+that is used to keep track of the number of true positives.</p>
+<p>If <code>sample_weight</code> is <code>None</code>, weights default to 1.
+Use <code>sample_weight</code> of 0 to mask values.</p>
+<p>Args:
+thresholds: (Optional) Defaults to 0.5. A float value or a python
+list/tuple of float threshold values in [0, 1]. A threshold is compared
+with prediction values to determine the truth value of predictions
+(i.e., above the threshold is <code>true</code>, below is <code>false</code>). One metric
+value is generated for each threshold value.
+name: (Optional) string name of the metric instance.
+dtype: (Optional) data type of the metric result.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m = tf.keras.metrics.TruePositives()
+m.update_state([0, 1, 1, 1], [1, 0, 1, 1])
+m.result().numpy()
+2.0</p>
+<p>m.reset_states()
+m.update_state([0, 1, 1, 1], [1, 0, 1, 1], sample_weight=[0, 0, 1, 0])
+m.result().numpy()
+1.0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss='mse',
+              metrics=[tf.keras.metrics.TruePositives()])
+</code></pre>
+<hr />
+<h3 id="binary_accuracy-function">binary_accuracy function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.binary_accuracy(y_true, y_pred, threshold=0.5)
+</code></pre>
+<p>Calculates how often predictions matches binary labels.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[1], [1], [0], [0]]
+y_pred = [[1], [1], [0], [0]]
+m = tf.keras.metrics.binary_accuracy(y_true, y_pred)
+assert m.shape == (4,)
+m.numpy()
+array([1., 1., 1., 1.], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.
+threshold: (Optional) Float representing the threshold for deciding whether
+prediction values are 1 or 0.</p>
+<p>Returns:
+Binary accuracy values. shape = <code>[batch_size, d0, .. dN-1]</code></p>
+<hr />
+<h3 id="binary_crossentropy-function">binary_crossentropy function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.binary_crossentropy(y_true, y_pred, from_logits=False, label_smoothing=0)
+</code></pre>
+<p>Computes the binary crossentropy loss.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 1], [0, 0]]
+y_pred = [[0.6, 0.4], [0.4, 0.6]]
+loss = tf.keras.losses.binary_crossentropy(y_true, y_pred)
+assert loss.shape == (2,)
+loss.numpy()
+array([0.916 , 0.714], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.
+from_logits: Whether <code>y_pred</code> is expected to be a logits tensor. By default,
+we assume that <code>y_pred</code> encodes a probability distribution.
+label_smoothing: Float in [0, 1]. If &gt; <code>0</code> then smooth the labels.</p>
+<p>Returns:
+Binary crossentropy loss value. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="categorical_accuracy-function">categorical_accuracy function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.categorical_accuracy(y_true, y_pred)
+</code></pre>
+<p>Calculates how often predictions matches one-hot labels.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 0, 1], [0, 1, 0]]
+y_pred = [[0.1, 0.9, 0.8], [0.05, 0.95, 0]]
+m = tf.keras.metrics.categorical_accuracy(y_true, y_pred)
+assert m.shape == (2,)
+m.numpy()
+array([0., 1.], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>You can provide logits of classes as <code>y_pred</code>, since argmax of
+logits and probabilities are same.</p>
+<p>Args:
+y_true: One-hot ground truth values.
+y_pred: The prediction values.</p>
+<p>Returns:
+Categorical accuracy values.</p>
+<hr />
+<h3 id="categorical_crossentropy-function">categorical_crossentropy function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.categorical_crossentropy(y_true, y_pred, from_logits=False, label_smoothing=0)
+</code></pre>
+<p>Computes the categorical crossentropy loss.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 1, 0], [0, 0, 1]]
+y_pred = [[0.05, 0.95, 0], [0.1, 0.8, 0.1]]
+loss = tf.keras.losses.categorical_crossentropy(y_true, y_pred)
+assert loss.shape == (2,)
+loss.numpy()
+array([0.0513, 2.303], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of one-hot true targets.
+y_pred: Tensor of predicted targets.
+from_logits: Whether <code>y_pred</code> is expected to be a logits tensor. By default,
+we assume that <code>y_pred</code> encodes a probability distribution.
+label_smoothing: Float in [0, 1]. If &gt; <code>0</code> then smooth the labels.</p>
+<p>Returns:
+Categorical crossentropy loss value.</p>
+<hr />
+<h3 id="deserialize-function">deserialize function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.deserialize(config, custom_objects=None)
+</code></pre>
+<p>Deserializes a serialized metric class/function instance.</p>
+<p>Arguments:
+config: Metric configuration.
+custom_objects: Optional dictionary mapping names (strings) to custom
+objects (classes and functions) to be considered during deserialization.</p>
+<p>Returns:
+A Keras <code>Metric</code> instance or a metric function.</p>
+<hr />
+<h3 id="get-function">get function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.get(identifier)
+</code></pre>
+<p>Retrieves a Keras metric as a <code>function</code>/<code>Metric</code> class instance.</p>
+<p>The <code>identifier</code> may be the string name of a metric function or class.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>metric = tf.keras.metrics.get("categorical_crossentropy")
+type(metric)
+<class 'function'>
+metric = tf.keras.metrics.get("CategoricalCrossentropy")
+type(metric)
+<class '...tensorflow.python.keras.metrics.CategoricalCrossentropy'></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>You can also specify <code>config</code> of the metric to this function by passing dict
+containing <code>class_name</code> and <code>config</code> as an identifier. Also note that the
+<code>class_name</code> must map to a <code>Metric</code> class</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>identifier = {"class_name": "CategoricalCrossentropy",
+...               "config": {"from_logits": True}}
+metric = tf.keras.metrics.get(identifier)
+type(metric)
+<class '...tensorflow.python.keras.metrics.CategoricalCrossentropy'></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Arguments:
+identifier: A metric identifier. One of None or string name of a metric
+function/class or metric configuration dictionary or a metric function or
+a metric class instance</p>
+<p>Returns:
+A Keras metric as a <code>function</code>/ <code>Metric</code> class instance.</p>
+<p>Raises:
+ValueError: If <code>identifier</code> cannot be interpreted.</p>
+<hr />
+<h3 id="hinge-function">hinge function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.hinge(y_true, y_pred)
+</code></pre>
+<p>Computes the hinge loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(maximum(1 - y_true * y_pred, 0), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.choice([-1, 1], size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.hinge(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     np.mean(np.maximum(1. - y_true * y_pred, 0.), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: The ground truth values. <code>y_true</code> values are expected to be -1 or 1.
+If binary (0 or 1) labels are provided they will be converted to -1 or 1.
+shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Hinge loss values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="kl_divergence-function_1">kl_divergence function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.kl_divergence(y_true, y_pred)
+</code></pre>
+<p>Computes Kullback-Leibler divergence loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_true * log(y_true / y_pred)</code></p>
+<p>See: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3)).astype(np.float64)
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.kullback_leibler_divergence(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = tf.keras.backend.clip(y_true, 1e-7, 1)
+y_pred = tf.keras.backend.clip(y_pred, 1e-7, 1)
+assert np.array_equal(
+...     loss.numpy(), np.sum(y_true * np.log(y_true / y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of true targets.
+y_pred: Tensor of predicted targets.</p>
+<p>Returns:
+A <code>Tensor</code> with loss.</p>
+<p>Raises:
+TypeError: If <code>y_true</code> cannot be cast to the <code>y_pred.dtype</code>.</p>
+<hr />
+<h3 id="kl_divergence-function_2">kl_divergence function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.kld(y_true, y_pred)
+</code></pre>
+<p>Computes Kullback-Leibler divergence loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_true * log(y_true / y_pred)</code></p>
+<p>See: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3)).astype(np.float64)
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.kullback_leibler_divergence(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = tf.keras.backend.clip(y_true, 1e-7, 1)
+y_pred = tf.keras.backend.clip(y_pred, 1e-7, 1)
+assert np.array_equal(
+...     loss.numpy(), np.sum(y_true * np.log(y_true / y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of true targets.
+y_pred: Tensor of predicted targets.</p>
+<p>Returns:
+A <code>Tensor</code> with loss.</p>
+<p>Raises:
+TypeError: If <code>y_true</code> cannot be cast to the <code>y_pred.dtype</code>.</p>
+<hr />
+<h3 id="kl_divergence-function_3">kl_divergence function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.kullback_leibler_divergence(y_true, y_pred)
+</code></pre>
+<p>Computes Kullback-Leibler divergence loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_true * log(y_true / y_pred)</code></p>
+<p>See: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3)).astype(np.float64)
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.kullback_leibler_divergence(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = tf.keras.backend.clip(y_true, 1e-7, 1)
+y_pred = tf.keras.backend.clip(y_pred, 1e-7, 1)
+assert np.array_equal(
+...     loss.numpy(), np.sum(y_true * np.log(y_true / y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of true targets.
+y_pred: Tensor of predicted targets.</p>
+<p>Returns:
+A <code>Tensor</code> with loss.</p>
+<p>Raises:
+TypeError: If <code>y_true</code> cannot be cast to the <code>y_pred.dtype</code>.</p>
+<hr />
+<h3 id="log_cosh-function">log_cosh function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.log_cosh(y_true, y_pred)
+</code></pre>
+<p>Logarithm of the hyperbolic cosine of the prediction error.</p>
+<p><code>log(cosh(x))</code> is approximately equal to <code>(x ** 2) / 2</code> for small <code>x</code> and
+to <code>abs(x) - log(2)</code> for large <code>x</code>. This means that 'logcosh' works mostly
+like the mean squared error, but will not be so strongly affected by the
+occasional wildly incorrect prediction.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.logcosh(y_true, y_pred)
+assert loss.shape == (2,)
+x = y_pred - y_true
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(x + np.log(np.exp(-2. * x) + 1.) - math_ops.log(2.), axis=-1),
+...     atol=1e-5)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Logcosh error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="log_cosh-function_1">log_cosh function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.logcosh(y_true, y_pred)
+</code></pre>
+<p>Logarithm of the hyperbolic cosine of the prediction error.</p>
+<p><code>log(cosh(x))</code> is approximately equal to <code>(x ** 2) / 2</code> for small <code>x</code> and
+to <code>abs(x) - log(2)</code> for large <code>x</code>. This means that 'logcosh' works mostly
+like the mean squared error, but will not be so strongly affected by the
+occasional wildly incorrect prediction.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.logcosh(y_true, y_pred)
+assert loss.shape == (2,)
+x = y_pred - y_true
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(x + np.log(np.exp(-2. * x) + 1.) - math_ops.log(2.), axis=-1),
+...     atol=1e-5)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Logcosh error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_error-function_1">mean_absolute_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.mae(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute error between labels and predictions.</p>
+<p><code>loss = mean(abs(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.abs(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_percentage_error-function_1">mean_absolute_percentage_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.mape(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute percentage error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = 100 * mean(abs((y_true - y_pred) / y_true), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_true = np.maximum(y_true, 1e-7)  # Prevent division by zero
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_percentage_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     100. * np.mean(np.abs((y_true - y_pred) / y_true), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute percentage error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_error-function_2">mean_absolute_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.mean_absolute_error(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute error between labels and predictions.</p>
+<p><code>loss = mean(abs(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.abs(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_percentage_error-function_2">mean_absolute_percentage_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.mean_absolute_percentage_error(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute percentage error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = 100 * mean(abs((y_true - y_pred) / y_true), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_true = np.maximum(y_true, 1e-7)  # Prevent division by zero
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_percentage_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     100. * np.mean(np.abs((y_true - y_pred) / y_true), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute percentage error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_error-function_1">mean_squared_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.mean_squared_error(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared error between labels and predictions.</p>
+<p>After computing the squared distance between the inputs, the mean value over
+the last dimension is returned.</p>
+<p><code>loss = mean(square(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.square(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_logarithmic_error-function_1">mean_squared_logarithmic_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.mean_squared_logarithmic_error(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared logarithmic error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(square(log(y_true + 1) - log(y_pred + 1)), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_logarithmic_error(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = np.maximum(y_true, 1e-7)
+y_pred = np.maximum(y_pred, 1e-7)
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(
+...         np.square(np.log(y_true + 1.) - np.log(y_pred + 1.)), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared logarithmic error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_error-function_2">mean_squared_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.mse(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared error between labels and predictions.</p>
+<p>After computing the squared distance between the inputs, the mean value over
+the last dimension is returned.</p>
+<p><code>loss = mean(square(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.square(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_logarithmic_error-function_2">mean_squared_logarithmic_error function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.msle(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared logarithmic error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(square(log(y_true + 1) - log(y_pred + 1)), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_logarithmic_error(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = np.maximum(y_true, 1e-7)
+y_pred = np.maximum(y_pred, 1e-7)
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(
+...         np.square(np.log(y_true + 1.) - np.log(y_pred + 1.)), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared logarithmic error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="poisson-function">poisson function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.poisson(y_true, y_pred)
+</code></pre>
+<p>Computes the Poisson loss between y_true and y_pred.</p>
+<p>The Poisson loss is the mean of the elements of the <code>Tensor</code>
+<code>y_pred - y_true * log(y_pred)</code>.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.poisson(y_true, y_pred)
+assert loss.shape == (2,)
+y_pred = y_pred + 1e-7
+assert np.allclose(
+...     loss.numpy(), np.mean(y_pred - y_true * np.log(y_pred), axis=-1),
+...     atol=1e-5)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Poisson loss value. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<p>Raises:
+InvalidArgumentError: If <code>y_true</code> and <code>y_pred</code> have incompatible shapes.</p>
+<hr />
+<h3 id="serialize-function">serialize function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.serialize(metric)
+</code></pre>
+<p>Serializes metric function or <code>Metric</code> instance.</p>
+<p>Arguments:
+metric: A Keras <code>Metric</code> instance or a metric function.</p>
+<p>Returns:
+Metric configuration dictionary.</p>
+<hr />
+<h3 id="sparse_categorical_accuracy-function">sparse_categorical_accuracy function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.sparse_categorical_accuracy(y_true, y_pred)
+</code></pre>
+<p>Calculates how often predictions matches integer labels.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [2, 1]
+y_pred = [[0.1, 0.9, 0.8], [0.05, 0.95, 0]]
+m = tf.keras.metrics.sparse_categorical_accuracy(y_true, y_pred)
+assert m.shape == (2,)
+m.numpy()
+array([0., 1.], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>You can provide logits of classes as <code>y_pred</code>, since argmax of
+logits and probabilities are same.</p>
+<p>Args:
+y_true: Integer ground truth values.
+y_pred: The prediction values.</p>
+<p>Returns:
+Sparse categorical accuracy values.</p>
+<hr />
+<h3 id="sparse_categorical_crossentropy-function">sparse_categorical_crossentropy function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.sparse_categorical_crossentropy(y_true, y_pred, from_logits=False, axis=-1)
+</code></pre>
+<p>Computes the sparse categorical crossentropy loss.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [1, 2]
+y_pred = [[0.05, 0.95, 0], [0.1, 0.8, 0.1]]
+loss = tf.keras.losses.sparse_categorical_crossentropy(y_true, y_pred)
+assert loss.shape == (2,)
+loss.numpy()
+array([0.0513, 2.303], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values.
+y_pred: The predicted values.
+from_logits: Whether <code>y_pred</code> is expected to be a logits tensor. By default,
+we assume that <code>y_pred</code> encodes a probability distribution.
+axis: (Optional) Defaults to -1. The dimension along which the entropy is
+computed.</p>
+<p>Returns:
+Sparse categorical crossentropy loss value.</p>
+<hr />
+<h3 id="sparse_top_k_categorical_accuracy-function">sparse_top_k_categorical_accuracy function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.sparse_top_k_categorical_accuracy(y_true, y_pred, k=5)
+</code></pre>
+<p>Computes how often integer targets are in the top <code>K</code> predictions.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [2, 1]
+y_pred = [[0.1, 0.9, 0.8], [0.05, 0.95, 0]]
+m = tf.keras.metrics.sparse_top_k_categorical_accuracy(
+...     y_true, y_pred, k=3)
+assert m.shape == (2,)
+m.numpy()
+array([1., 1.], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: tensor of true targets.
+y_pred: tensor of predicted targets.
+k: (Optional) Number of top elements to look at for computing accuracy.
+Defaults to 5.</p>
+<p>Returns:
+Sparse top K categorical accuracy value.</p>
+<hr />
+<h3 id="squared_hinge-function">squared_hinge function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.squared_hinge(y_true, y_pred)
+</code></pre>
+<p>Computes the squared hinge loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(square(maximum(1 - y_true * y_pred, 0)), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.choice([-1, 1], size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.squared_hinge(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     np.mean(np.square(np.maximum(1. - y_true * y_pred, 0.)), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: The ground truth values. <code>y_true</code> values are expected to be -1 or 1.
+If binary (0 or 1) labels are provided we will convert them to -1 or 1.
+shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Squared hinge loss values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="top_k_categorical_accuracy-function">top_k_categorical_accuracy function</h3>
+<pre><code class="language-python">tensorflow.keras.metrics.top_k_categorical_accuracy(y_true, y_pred, k=5)
+</code></pre>
+<p>Computes how often targets are in the top <code>K</code> predictions.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 0, 1], [0, 1, 0]]
+y_pred = [[0.1, 0.9, 0.8], [0.05, 0.95, 0]]
+m = tf.keras.metrics.top_k_categorical_accuracy(y_true, y_pred, k=3)
+assert m.shape == (2,)
+m.numpy()
+array([1., 1.], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: The ground truth values.
+y_pred: The prediction values.
+k: (Optional) Number of top elements to look at for computing accuracy.
+Defaults to 5.</p>
+<p>Returns:
+Top K categorical accuracy value.</p>
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../SparseMeanIoU/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              SparseMeanIoU
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../models/SSD/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              SSD
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d892486b.min.js"></script>
+      
+    
+  </body>
+</html>

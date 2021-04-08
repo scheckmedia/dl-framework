@@ -1,0 +1,1495 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A deep learning framework based on TF 2.0">
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+    
+    
+      
+        <title>dl-framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.33e2939f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"";--md-code-font-family:""}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dl-framework" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="dl-framework" class="md-header__button md-logo" aria-label="dl-framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            dl-framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="dl-framework" class="md-nav__button md-logo" aria-label="dl-framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    dl-framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Home
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docs" class="md-nav__link">
+    Docs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experiment-configuration" class="md-nav__link">
+    Experiment Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiment Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experiment" class="md-nav__link">
+    experiment:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    model:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_reader" class="md-nav__link">
+    input_reader:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training" class="md-nav__link">
+    training:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration" class="md-nav__link">
+    Example configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-an-experiment" class="md-nav__link">
+    Run an experiment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Core
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Core
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/core/registry/" class="md-nav__link">
+        registry
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/core/builder/" class="md-nav__link">
+        builder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/core/data_generator/" class="md-nav__link">
+        data_generator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/core/experiment/" class="md-nav__link">
+        experiment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/core/evaluator/" class="md-nav__link">
+        evaluator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/core/callback/" class="md-nav__link">
+        callback
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/core/preprocessing/" class="md-nav__link">
+        preprocessing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/core/model/" class="md-nav__link">
+        model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Callbacks
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Callbacks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Callbacks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/callbacks/TensorboardLogger/" class="md-nav__link">
+        TensorboardLogger
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/callbacks/SegmentationLogger/" class="md-nav__link">
+        SegmentationLogger
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/callbacks/ObjectDetectionLogger/" class="md-nav__link">
+        ObjectDetectionLogger
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/callbacks/CycleGanLogger/" class="md-nav__link">
+        CycleGanLogger
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Data generators
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data generators" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Data generators
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/data_generators/TfRecordSegmentationReader/" class="md-nav__link">
+        TfRecordSegmentationReader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/data_generators/FsRandomUnpairedReader/" class="md-nav__link">
+        FsRandomUnpairedReader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/data_generators/FsImageNetLikeReader/" class="md-nav__link">
+        FsImageNetLikeReader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/data_generators/TfRecordSSDReader/" class="md-nav__link">
+        TfRecordSSDReader
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Evaluators
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Evaluators" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Evaluators
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/evaluators/CocoObjectDectectionEvaluator/" class="md-nav__link">
+        CocoObjectDectectionEvaluator
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Losses
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Losses" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Losses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/losses/NTXentLoss/" class="md-nav__link">
+        NTXentLoss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/losses/SparseCategoricalCrossentropyIgnore/" class="md-nav__link">
+        SparseCategoricalCrossentropyIgnore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/losses/CenterNetLoss/" class="md-nav__link">
+        CenterNetLoss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/losses/SSDLoss/" class="md-nav__link">
+        SSDLoss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/losses/Keras/" class="md-nav__link">
+        Keras
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Metrics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Metrics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Metrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/metrics/SparseCategoricalCrossentropyIgnore/" class="md-nav__link">
+        SparseCategoricalCrossentropyIgnore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/metrics/SparseMeanIoU/" class="md-nav__link">
+        SparseMeanIoU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/metrics/Keras/" class="md-nav__link">
+        Keras
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Models
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Models" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/SSD/" class="md-nav__link">
+        SSD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/DeeplabV3Plus/" class="md-nav__link">
+        DeeplabV3Plus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/FCN/" class="md-nav__link">
+        FCN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/CenterNet/" class="md-nav__link">
+        CenterNet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/CycleGAN/" class="md-nav__link">
+        CycleGAN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/VggEncoderDecoder/" class="md-nav__link">
+        VggEncoderDecoder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/SimCLR/" class="md-nav__link">
+        SimCLR
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/FeatureExtractor/" class="md-nav__link">
+        FeatureExtractor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/ResNet18/" class="md-nav__link">
+        ResNet18
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/models/ResNet34/" class="md-nav__link">
+        ResNet34
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Preprocessing methods
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Preprocessing methods" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Preprocessing methods
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomTransform/" class="md-nav__link">
+        RandomTransform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomBrightness/" class="md-nav__link">
+        RandomBrightness
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomHorizontalFlip/" class="md-nav__link">
+        RandomHorizontalFlip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomVerticalFlip/" class="md-nav__link">
+        RandomVerticalFlip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomSaturation/" class="md-nav__link">
+        RandomSaturation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomNoise/" class="md-nav__link">
+        RandomNoise
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomColorDistortion/" class="md-nav__link">
+        RandomColorDistortion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomHue/" class="md-nav__link">
+        RandomHue
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/Resize/" class="md-nav__link">
+        Resize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomCrop/" class="md-nav__link">
+        RandomCrop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomBlur/" class="md-nav__link">
+        RandomBlur
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dlf/preprocessing_methods/RandomFisheye/" class="md-nav__link">
+        RandomFisheye
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docs" class="md-nav__link">
+    Docs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experiment-configuration" class="md-nav__link">
+    Experiment Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiment Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experiment" class="md-nav__link">
+    experiment:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    model:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_reader" class="md-nav__link">
+    input_reader:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training" class="md-nav__link">
+    training:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration" class="md-nav__link">
+    Example configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-an-experiment" class="md-nav__link">
+    Run an experiment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="dl-framework">DL-Framework</h1>
+<p>The DL-Framework is an approach to generate an experimental environment that can easily be reused and extended but without the requirements to change core functionality.
+The framework is implemented using Tensorflow 2.0 in combination with tf.keras.
+If you add new model functionalities, like data loading, these operations should be handled by the framework and not be implemented again and again.
+The same situation for the training loop.
+In a segmentation task, the training loop for all kind of networks is completely identical, it's not necessary to implement these loops for each model.</p>
+<p>For more flexibility, the framework is configured by YAML configuration files.
+This allows it, flexibly, to configure experiments without dying in an argument hell of a command-line application.
+Additional pre-processing methods, metrics or loss functions can easily append or replaced just by changing the parameter in an experiment configuration.</p>
+<p>If something is missing, don't hesitate to implement it!
+A model is missing? Checkout out the already implemented models and start with your implementation.
+This is also the case for loss functions, data loaders, metrics or pre-processing functions.
+While semantic segmentation training or classification tasks are identically in the training loop, you can also implement your loop.
+The best example is the <em>CycleGAN</em> implementation, that overrides the basic training loop.</p>
+<h2 id="docs">Docs</h2>
+<p><a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation</a></p>
+<h2 id="installation">Installation</h2>
+<p>Use the following command to install the required python packages via pip.</p>
+<pre><code class="language-sh">pip install -r requirements.txt
+</code></pre>
+<p>To install dlf module on your system, use</p>
+<pre><code class="language-sh">pip install .
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="experiment-configuration">Experiment Configuration</h3>
+<h4 id="experiment">experiment:</h4>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>output_folder</td>
+<td>Required. Path where the models/weights and logging data are saved</td>
+</tr>
+</tbody>
+</table>
+<h4 id="model">model:</h4>
+<p>The model section contains required parameters to initialize an ANN model from the framework. All list of all available models and the corresponding parameters can you find in the <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation/Models</a>.</p>
+<h4 id="input_reader">input_reader:</h4>
+<p>The input reader section is responsible to provide data during training, validation and test <em>(not implemented at the moment)</em>. You can find all data generators and the corresponding parameters in <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation/Data generators</a></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>training_reader</td>
+<td>Optional. Provides data used during training</td>
+</tr>
+<tr>
+<td>validation_reader</td>
+<td>Optional. Provides data used during validation</td>
+</tr>
+<tr>
+<td>training_reader</td>
+<td>Optional. Provides data used during training</td>
+</tr>
+</tbody>
+</table>
+<h4 id="training">training:</h4>
+<p>This section contains all training specific parameters. These are, for instance, the number of steps to train, after every N step start the evaluation, callbacks, metrics or just the batch size used during training.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>metrics</td>
+<td>Optional. A list of metrics which are evaluated during training/validation/test. <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation/Metrics</a></td>
+</tr>
+<tr>
+<td>callbacks</td>
+<td>Optional. A list of callbacks which are executed during training/validation/test.<a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/">Documentation/Callbacks</a></td>
+</tr>
+<tr>
+<td>num_steps</td>
+<td>Required. Number of steps to train</td>
+</tr>
+<tr>
+<td>batch_size</td>
+<td>Optional. Number of samples per gradient update</td>
+</tr>
+<tr>
+<td>eval_every_step</td>
+<td>Optional. Start evaluation at every N step (step mod N == 0)</td>
+</tr>
+<tr>
+<td>save_strategy</td>
+<td>Optional. Provides a strategy when a model should be saved. <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/framework/core/experiment/#savestrategy-class">Documentation</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="example-configuration">Example configuration</h4>
+<p>Below is a sample configuration that is used to train a CNN for a segmentation task.
+In the experiment section, we define the output folder where all results are saved.
+As model the configuration specifies the <a href="https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/framework/models/VggEncoderDecoder/">vgg_encoder_decoder</a> and the corresponding parameters.
+In this case, the input is an RGB image with a resolution of 512x512 pixels.
+We set up the network that we can distinguish between 7 classes.
+<code>Note: &amp;num_classes is YAML syntax to define a variable which we can reuse in our configuration</code>
+With <code>model_weights</code> the network is forced to use pre-trained weights at the given path to initialize the network.
+By specifying SparseCategoricalCrossentropyIgnore as loss function we override the default loss of the model.
+The fact that the <code>vgg_encoder_decoder</code> model uses a softmax-layer as the last layer we pass for the argument <code>from_loggits</code> as False value.
+As mentioned before, we reuse the value of the <code>num_classes</code> variable as input for the SparseCategoricalCrossentropyIgnore objective.
+As the stochastic gradient descent method, this experiment uses Adam with a learning rate of 0.00001.</p>
+<p>During training, the network receives the input from a <code>tf_record_segmentation_reader</code>.
+Not only the path to the TFRecord and Labelmap file is specified also an option to remap classes.
+This functionality allows it to change categories of pixels during training from e.g. class 1 to class 0.
+The <code>preprocess_list</code> contains a list of data augmentation methods that are applied before the images are fed into the network. Not only single scalars can be used as variables also lists and dictionaries.
+In this case, we use the remap-list also for the validation_reader.</p>
+<p>For a better overview of the training, the experiment uses two metrics.
+First the <code>SparseCategoricalCrossentropyIgnore</code> and additional the <code>SparseMeanIoU</code>.
+All these metric values are logged to Tensorboard by using the callback <code>SegmentationLogger</code> but also segmentation mask examples.
+The training is executed for 50.000 steps with a batch size of 4 and after every hundredth step, the model is evaluated.
+The <code>save_strategy</code> ensures that the model is only stored when the value of <code>validation_sparse_mean_iou</code> improves.</p>
+<pre><code class="language-yaml">experiment:
+  output_folder: /mnt/data/experiments/segmentation/SegNet_VGG_transposed
+model:
+  vgg_encoder_decoder:
+    input_shape:
+      - 512
+      - 512
+      - 3
+    num_classes: &amp;num_classes 7
+    summary: True
+    use_skip_layers: True
+    model_weights: /mnt/data/experiments/segmentation/SegNet_VGG_transposed/checkpoint
+    loss:
+      SparseCategoricalCrossentropyIgnore:
+        num_classes: *num_classes
+        from_logits: False
+    optimizer:
+      - Adam:
+          learning_rate: 0.00001
+
+input_reader:
+  training_reader:
+    name: tf_record_segmentation_reader
+    path: /mnt/data/datasets/wheeled_walker_100k_8fps_25switch/25k_sample_4_mask/training.tfrecord
+    labelmap: &amp;labelmap /mnt/data/datasets/wheeled_walker_100k_8fps_25switch/label_map.pbtxt
+    ignore:
+    remap: &amp;mapping
+        1: 0
+        2: 0
+        3: 0
+        4: 1
+        5: 1
+    preprocess_list:
+      h_flip:
+      v_flip:
+      resize:
+        width: 512
+        height: 512
+
+  validation_reader:
+    name: tf_record_segmentation_reader
+    path: /mnt/data/datasets/omnidetector-Flat/training-mask.tfrecord
+    labelmap: *labelmap
+    shuffle: False
+    ignore:
+    remap:
+    preprocess_list:
+      resize:
+        width: 512
+        height: 512
+training:
+  metrics:
+    SparseCategoricalCrossentropyIgnore:
+      from_logits: False
+      num_classes: *num_classes
+    SparseMeanIoU:
+      num_classes: *num_classes
+  callbacks:
+    SegmentationLogger:
+      num_classes: *num_classes
+      # num_visualizations: 200
+      opacity: 0.4
+  num_steps: 50000
+  eval_every_step: 100
+  batch_size: 4
+  save_strategy:
+    monitor: validation_sparse_mean_iou
+    mode: max
+
+</code></pre>
+<h3 id="run-an-experiment">Run an experiment</h3>
+<p>To start an experiment it is just required to execute the experiment.py with the corresponding configuration file.</p>
+<pre><code class="language-sh">python experiment.py --config config/config_dst.yml
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        <a href="development/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Development
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d892486b.min.js"></script>
+      
+    
+  </body>
+</html>
