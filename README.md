@@ -16,7 +16,7 @@ While semantic segmentation training or classification tasks are identically in 
 The best example is the *CycleGAN* implementation, that overrides the basic training loop.
 
 ## Docs
-[Documentation](https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/)
+[Documentation](https://scheckmedia.github.io/dl-framework/)
 
 ## Installation
 Use the following command to install the required python packages via pip.
@@ -39,10 +39,10 @@ pip install .
 | output_folder | Required. Path where the models/weights and logging data are saved |
 
 #### model:
-The model section contains required parameters to initialize an ANN model from the framework. All list of all available models and the corresponding parameters can you find in the [Documentation/Models](https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/).
+The model section contains required parameters to initialize an ANN model from the framework. All list of all available models and the corresponding parameters can you find in the [Documentation/Models](https://scheckmedia.github.io/dl-framework/).
 
 #### input_reader:
-The input reader section is responsible to provide data during training, validation and test *(not implemented at the moment)*. You can find all data generators and the corresponding parameters in [Documentation/Data generators](https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/)
+The input reader section is responsible to provide data during training, validation and test *(not implemented at the moment)*. You can find all data generators and the corresponding parameters in [Documentation/Data generators](https://scheckmedia.github.io/dl-framework/)
 
 | Key               | Summary                                        |
 | ----------------- | ---------------------------------------------- |
@@ -53,20 +53,20 @@ The input reader section is responsible to provide data during training, validat
 #### training:
 This section contains all training specific parameters. These are, for instance, the number of steps to train, after every N step start the evaluation, callbacks, metrics or just the batch size used during training.
 
-| Key             | Summary                                                                                                                                                                                           |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| metrics         | Optional. A list of metrics which are evaluated during training/validation/test. [Documentation/Metrics](https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/)                 |
-| callbacks       | Optional. A list of callbacks which are executed during training/validation/test.[Documentation/Callbacks](https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/)               |
-| num_steps       | Required. Number of steps to train                                                                                                                                                                |
-| batch_size      | Optional. Number of samples per gradient update                                                                                                                                                   |
-| eval_every_step | Optional. Start evaluation at every N step (step mod N == 0)                                                                                                                                      |
-| save_strategy   | Optional. Provides a strategy when a model should be saved. [Documentation](https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/framework/core/experiment/#savestrategy-class) |
+| Key             | Summary                                                                                                                                                               |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| metrics         | Optional. A list of metrics which are evaluated during training/validation/test. [Documentation/Metrics](https://scheckmedia.github.io/dl-framework/)                 |
+| callbacks       | Optional. A list of callbacks which are executed during training/validation/test.[Documentation/Callbacks](https://scheckmedia.github.io/dl-framework/)               |
+| num_steps       | Required. Number of steps to train                                                                                                                                    |
+| batch_size      | Optional. Number of samples per gradient update                                                                                                                       |
+| eval_every_step | Optional. Start evaluation at every N step (step mod N == 0)                                                                                                          |
+| save_strategy   | Optional. Provides a strategy when a model should be saved. [Documentation](https://scheckmedia.github.io/dl-framework/framework/core/experiment/#savestrategy-class) |
 
 
 #### Example configuration
 Below is a sample configuration that is used to train a CNN for a segmentation task.
 In the experiment section, we define the output folder where all results are saved.
-As model the configuration specifies the [vgg_encoder_decoder](https://dst.pages.dst.etit.tu-chemnitz.de/computer-vision/dl-framework/framework/models/VggEncoderDecoder/) and the corresponding parameters.
+As model the configuration specifies the [vgg_encoder_decoder](https://scheckmedia.github.io/dl-framework/framework/models/VggEncoderDecoder/) and the corresponding parameters.
 In this case, the input is an RGB image with a resolution of 512x512 pixels.
 We set up the network that we can distinguish between 7 classes.
 `Note: &num_classes is YAML syntax to define a variable which we can reuse in our configuration`
