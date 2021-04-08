@@ -1,0 +1,2619 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A deep learning framework based on TF 2.0">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+    
+    
+      
+        <title>Keras - dl-framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.33e2939f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"";--md-code-font-family:""}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usage-in-framework" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="dl-framework" class="md-header__button md-logo" aria-label="dl-framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            dl-framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Keras
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="dl-framework" class="md-nav__button md-logo" aria-label="dl-framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    dl-framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Core
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Core
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/registry/" class="md-nav__link">
+        registry
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/builder/" class="md-nav__link">
+        builder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/data_generator/" class="md-nav__link">
+        data_generator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/experiment/" class="md-nav__link">
+        experiment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/evaluator/" class="md-nav__link">
+        evaluator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/callback/" class="md-nav__link">
+        callback
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/preprocessing/" class="md-nav__link">
+        preprocessing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/model/" class="md-nav__link">
+        model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Callbacks
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Callbacks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Callbacks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../callbacks/TensorboardLogger/" class="md-nav__link">
+        TensorboardLogger
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../callbacks/SegmentationLogger/" class="md-nav__link">
+        SegmentationLogger
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../callbacks/ObjectDetectionLogger/" class="md-nav__link">
+        ObjectDetectionLogger
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../callbacks/CycleGanLogger/" class="md-nav__link">
+        CycleGanLogger
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Data generators
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data generators" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Data generators
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_generators/TfRecordSegmentationReader/" class="md-nav__link">
+        TfRecordSegmentationReader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_generators/FsRandomUnpairedReader/" class="md-nav__link">
+        FsRandomUnpairedReader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_generators/FsImageNetLikeReader/" class="md-nav__link">
+        FsImageNetLikeReader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_generators/TfRecordSSDReader/" class="md-nav__link">
+        TfRecordSSDReader
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Evaluators
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Evaluators" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Evaluators
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluators/CocoObjectDectectionEvaluator/" class="md-nav__link">
+        CocoObjectDectectionEvaluator
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      <label class="md-nav__link" for="__nav_7">
+        Losses
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Losses" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Losses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NTXentLoss/" class="md-nav__link">
+        NTXentLoss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SparseCategoricalCrossentropyIgnore/" class="md-nav__link">
+        SparseCategoricalCrossentropyIgnore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CenterNetLoss/" class="md-nav__link">
+        CenterNetLoss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSDLoss/" class="md-nav__link">
+        SSDLoss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Keras
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Keras
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-configuration" class="md-nav__link">
+    YAML Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Metrics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Metrics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Metrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/SparseCategoricalCrossentropyIgnore/" class="md-nav__link">
+        SparseCategoricalCrossentropyIgnore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/SparseMeanIoU/" class="md-nav__link">
+        SparseMeanIoU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/Keras/" class="md-nav__link">
+        Keras
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Models
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Models" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/SSD/" class="md-nav__link">
+        SSD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/DeeplabV3Plus/" class="md-nav__link">
+        DeeplabV3Plus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/FCN/" class="md-nav__link">
+        FCN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CenterNet/" class="md-nav__link">
+        CenterNet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CycleGAN/" class="md-nav__link">
+        CycleGAN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/VggEncoderDecoder/" class="md-nav__link">
+        VggEncoderDecoder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/SimCLR/" class="md-nav__link">
+        SimCLR
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/FeatureExtractor/" class="md-nav__link">
+        FeatureExtractor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ResNet18/" class="md-nav__link">
+        ResNet18
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ResNet34/" class="md-nav__link">
+        ResNet34
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Preprocessing methods
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Preprocessing methods" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Preprocessing methods
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomTransform/" class="md-nav__link">
+        RandomTransform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomBrightness/" class="md-nav__link">
+        RandomBrightness
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomHorizontalFlip/" class="md-nav__link">
+        RandomHorizontalFlip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomVerticalFlip/" class="md-nav__link">
+        RandomVerticalFlip
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomSaturation/" class="md-nav__link">
+        RandomSaturation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomNoise/" class="md-nav__link">
+        RandomNoise
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomColorDistortion/" class="md-nav__link">
+        RandomColorDistortion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomHue/" class="md-nav__link">
+        RandomHue
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/Resize/" class="md-nav__link">
+        Resize
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomCrop/" class="md-nav__link">
+        RandomCrop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomBlur/" class="md-nav__link">
+        RandomBlur
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preprocessing_methods/RandomFisheye/" class="md-nav__link">
+        RandomFisheye
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-configuration" class="md-nav__link">
+    YAML Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h2 id="usage-in-framework">Usage in framework</h2>
+<p>All in tf.keras.losses available loss functions can be used in our framework.
+Just use the class name as configuration key and the arguments as as dict.</p>
+<h3 id="yaml-configuration">YAML Configuration</h3>
+<p>E.g. for tf.losses.MeanAbsoluteError without no arguments</p>
+<pre><code class="language-yaml">loss:
+    MeanSquaredError:
+</code></pre>
+<p>or for tf.losses.Huber with arguments:</p>
+<pre><code class="language-yaml">loss:
+    Huber:
+        delta: 0.3
+</code></pre>
+<hr />
+<h2 id="keras-loss-functions">Keras loss functions</h2>
+<h3 id="binarycrossentropy-class">BinaryCrossentropy class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.BinaryCrossentropy(
+    from_logits=False, label_smoothing=0, reduction=&quot;auto&quot;, name=&quot;binary_crossentropy&quot;
+)
+</code></pre>
+<p>Computes the cross-entropy loss between true labels and predicted labels.</p>
+<p>Use this cross-entropy loss when there are only two label classes (assumed to
+be 0 and 1). For each example, there should be a single floating-point value
+per prediction.</p>
+<p>In the snippet below, each of the four examples has only a single
+floating-pointing value, and both <code>y_pred</code> and <code>y_true</code> have the shape
+<code>[batch_size]</code>.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [0., 0.]]
+y_pred = [[0.6, 0.4], [0.4, 0.6]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>bce = tf.keras.losses.BinaryCrossentropy()
+bce(y_true, y_pred).numpy()
+0.815</p>
+<h1 id="calling-with-sample_weight">Calling with 'sample_weight'.</h1>
+<p>bce(y_true, y_pred, sample_weight=[1, 0]).numpy()
+0.458</p>
+<h1 id="using-sum-reduction-type">Using 'sum' reduction type.</h1>
+<p>bce = tf.keras.losses.BinaryCrossentropy(
+...     reduction=tf.keras.losses.Reduction.SUM)
+bce(y_true, y_pred).numpy()
+1.630</p>
+<h1 id="using-none-reduction-type">Using 'none' reduction type.</h1>
+<p>bce = tf.keras.losses.BinaryCrossentropy(
+...     reduction=tf.keras.losses.Reduction.NONE)
+bce(y_true, y_pred).numpy()
+array([0.916 , 0.714], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>tf.keras</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.BinaryCrossentropy())
+</code></pre>
+<hr />
+<h3 id="categoricalcrossentropy-class">CategoricalCrossentropy class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.CategoricalCrossentropy(
+    from_logits=False, label_smoothing=0, reduction=&quot;auto&quot;, name=&quot;categorical_crossentropy&quot;
+)
+</code></pre>
+<p>Computes the crossentropy loss between the labels and predictions.</p>
+<p>Use this crossentropy loss function when there are two or more label classes.
+We expect labels to be provided in a <code>one_hot</code> representation. If you want to
+provide labels as integers, please use <code>SparseCategoricalCrossentropy</code> loss.
+There should be <code># classes</code> floating point values per feature.</p>
+<p>In the snippet below, there is <code># classes</code> floating pointing values per
+example. The shape of both <code>y_pred</code> and <code>y_true</code> are
+<code>[batch_size, num_classes]</code>.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 1, 0], [0, 0, 1]]
+y_pred = [[0.05, 0.95, 0], [0.1, 0.8, 0.1]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_1">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>cce = tf.keras.losses.CategoricalCrossentropy()
+cce(y_true, y_pred).numpy()
+1.177</p>
+<h1 id="calling-with-sample_weight_1">Calling with 'sample_weight'.</h1>
+<p>cce(y_true, y_pred, sample_weight=tf.constant([0.3, 0.7])).numpy()
+0.814</p>
+<h1 id="using-sum-reduction-type_1">Using 'sum' reduction type.</h1>
+<p>cce = tf.keras.losses.CategoricalCrossentropy(
+...     reduction=tf.keras.losses.Reduction.SUM)
+cce(y_true, y_pred).numpy()
+2.354</p>
+<h1 id="using-none-reduction-type_1">Using 'none' reduction type.</h1>
+<p>cce = tf.keras.losses.CategoricalCrossentropy(
+...     reduction=tf.keras.losses.Reduction.NONE)
+cce(y_true, y_pred).numpy()
+array([0.0513, 2.303], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.CategoricalCrossentropy())
+</code></pre>
+<hr />
+<h3 id="categoricalhinge-class">CategoricalHinge class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.CategoricalHinge(reduction=&quot;auto&quot;, name=&quot;categorical_hinge&quot;)
+</code></pre>
+<p>Computes the categorical hinge loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = maximum(neg - pos + 1, 0)</code>
+where <code>neg=maximum((1-y_true)*y_pred) and pos=sum(y_true*y_pred)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 1], [0, 0]]
+y_pred = [[0.6, 0.4], [0.4, 0.6]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_2">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>h = tf.keras.losses.CategoricalHinge()
+h(y_true, y_pred).numpy()
+1.4</p>
+<h1 id="calling-with-sample_weight_2">Calling with 'sample_weight'.</h1>
+<p>h(y_true, y_pred, sample_weight=[1, 0]).numpy()
+0.6</p>
+<h1 id="using-sum-reduction-type_2">Using 'sum' reduction type.</h1>
+<p>h = tf.keras.losses.CategoricalHinge(
+...     reduction=tf.keras.losses.Reduction.SUM)
+h(y_true, y_pred).numpy()
+2.8</p>
+<h1 id="using-none-reduction-type_2">Using 'none' reduction type.</h1>
+<p>h = tf.keras.losses.CategoricalHinge(
+...     reduction=tf.keras.losses.Reduction.NONE)
+h(y_true, y_pred).numpy()
+array([1.2, 1.6], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.CategoricalHinge())
+</code></pre>
+<hr />
+<h3 id="cosinesimilarity-class">CosineSimilarity class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.CosineSimilarity(axis=-1, reduction=&quot;auto&quot;, name=&quot;cosine_similarity&quot;)
+</code></pre>
+<p>Computes the cosine similarity between labels and predictions.</p>
+<p>Note that it is a number between -1 and 1. When it is a negative number
+between -1 and 0, 0 indicates orthogonality and values closer to -1
+indicate greater similarity. The values closer to 1 indicate greater
+dissimilarity. This makes it usable as a loss function in a setting
+where you try to maximize the proximity between predictions and targets.
+If either <code>y_true</code> or <code>y_pred</code> is a zero vector, cosine similarity will be 0
+regardless of the proximity between predictions and targets.</p>
+<p><code>loss = -sum(l2_norm(y_true) * l2_norm(y_pred))</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [1., 1.]]
+y_pred = [[1., 0.], [1., 1.]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_3">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>cosine_loss = tf.keras.losses.CosineSimilarity(axis=1)</p>
+<h1 id="l2_normy_true-0-1-11414-11414">l2_norm(y_true) = [[0., 1.], [1./1.414], 1./1.414]]]</h1>
+<h1 id="l2_normy_pred-1-0-11414-11414">l2_norm(y_pred) = [[1., 0.], [1./1.414], 1./1.414]]]</h1>
+<h1 id="l2_normy_true-l2_normy_pred-0-0-05-05">l2_norm(y_true) . l2_norm(y_pred) = [[0., 0.], [0.5, 0.5]]</h1>
+<h1 id="loss-meansuml2_normy_true-l2_normy_pred-axis1">loss = mean(sum(l2_norm(y_true) . l2_norm(y_pred), axis=1))</h1>
+<h1 id="-0-0-05-05-2">= -((0. + 0.) +  (0.5 + 0.5)) / 2</h1>
+<p>cosine_loss(y_true, y_pred).numpy()
+-0.5</p>
+<h1 id="calling-with-sample_weight_3">Calling with 'sample_weight'.</h1>
+<p>cosine_loss(y_true, y_pred, sample_weight=[0.8, 0.2]).numpy()
+-0.0999</p>
+<h1 id="using-sum-reduction-type_3">Using 'sum' reduction type.</h1>
+<p>cosine_loss = tf.keras.losses.CosineSimilarity(axis=1,
+...     reduction=tf.keras.losses.Reduction.SUM)
+cosine_loss(y_true, y_pred).numpy()
+-0.999</p>
+<h1 id="using-none-reduction-type_3">Using 'none' reduction type.</h1>
+<p>cosine_loss = tf.keras.losses.CosineSimilarity(axis=1,
+...     reduction=tf.keras.losses.Reduction.NONE)
+cosine_loss(y_true, y_pred).numpy()
+array([-0., -0.999], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.CosineSimilarity(axis=1))
+</code></pre>
+<p>Args:
+axis: (Optional) Defaults to -1. The dimension along which the cosine
+similarity is computed.
+reduction: (Optional) Type of <code>tf.keras.losses.Reduction</code> to apply to loss.
+Default value is <code>AUTO</code>. <code>AUTO</code> indicates that the reduction option will
+be determined by the usage context. For almost all cases this defaults to
+<code>SUM_OVER_BATCH_SIZE</code>. When used with <code>tf.distribute.Strategy</code>, outside of
+built-in training loops such as <code>tf.keras</code> <code>compile</code> and <code>fit</code>, using
+<code>AUTO</code> or <code>SUM_OVER_BATCH_SIZE</code> will raise an error. Please see this
+custom training [tutorial]
+(https://www.tensorflow.org/tutorials/distribute/custom_training) for more
+details.
+name: Optional name for the op.</p>
+<hr />
+<h3 id="hinge-class">Hinge class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.Hinge(reduction=&quot;auto&quot;, name=&quot;hinge&quot;)
+</code></pre>
+<p>Computes the hinge loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = maximum(1 - y_true * y_pred, 0)</code></p>
+<p><code>y_true</code> values are expected to be -1 or 1. If binary (0 or 1) labels are
+provided we will convert them to -1 or 1.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [0., 0.]]
+y_pred = [[0.6, 0.4], [0.4, 0.6]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_4">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>h = tf.keras.losses.Hinge()
+h(y_true, y_pred).numpy()
+1.3</p>
+<h1 id="calling-with-sample_weight_4">Calling with 'sample_weight'.</h1>
+<p>h(y_true, y_pred, sample_weight=[1, 0]).numpy()
+0.55</p>
+<h1 id="using-sum-reduction-type_4">Using 'sum' reduction type.</h1>
+<p>h = tf.keras.losses.Hinge(
+...     reduction=tf.keras.losses.Reduction.SUM)
+h(y_true, y_pred).numpy()
+2.6</p>
+<h1 id="using-none-reduction-type_4">Using 'none' reduction type.</h1>
+<p>h = tf.keras.losses.Hinge(
+...     reduction=tf.keras.losses.Reduction.NONE)
+h(y_true, y_pred).numpy()
+array([1.1, 1.5], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.Hinge())
+</code></pre>
+<hr />
+<h3 id="huber-class">Huber class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.Huber(delta=1.0, reduction=&quot;auto&quot;, name=&quot;huber_loss&quot;)
+</code></pre>
+<p>Computes the Huber loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p>For each value x in <code>error = y_true - y_pred</code>:</p>
+<pre><code>loss = 0.5 * x^2                  if |x| &lt;= d
+loss = 0.5 * d^2 + d * (|x| - d)  if |x| &gt; d
+</code></pre>
+<p>where d is <code>delta</code>. See: https://en.wikipedia.org/wiki/Huber_loss</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 1], [0, 0]]
+y_pred = [[0.6, 0.4], [0.4, 0.6]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_5">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>h = tf.keras.losses.Huber()
+h(y_true, y_pred).numpy()
+0.155</p>
+<h1 id="calling-with-sample_weight_5">Calling with 'sample_weight'.</h1>
+<p>h(y_true, y_pred, sample_weight=[1, 0]).numpy()
+0.09</p>
+<h1 id="using-sum-reduction-type_5">Using 'sum' reduction type.</h1>
+<p>h = tf.keras.losses.Huber(
+...     reduction=tf.keras.losses.Reduction.SUM)
+h(y_true, y_pred).numpy()
+0.31</p>
+<h1 id="using-none-reduction-type_5">Using 'none' reduction type.</h1>
+<p>h = tf.keras.losses.Huber(
+...     reduction=tf.keras.losses.Reduction.NONE)
+h(y_true, y_pred).numpy()
+array([0.18, 0.13], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.Huber())
+</code></pre>
+<hr />
+<h3 id="kl_divergence-function">kl_divergence function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.KLD(y_true, y_pred)
+</code></pre>
+<p>Computes Kullback-Leibler divergence loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_true * log(y_true / y_pred)</code></p>
+<p>See: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3)).astype(np.float64)
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.kullback_leibler_divergence(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = tf.keras.backend.clip(y_true, 1e-7, 1)
+y_pred = tf.keras.backend.clip(y_pred, 1e-7, 1)
+assert np.array_equal(
+...     loss.numpy(), np.sum(y_true * np.log(y_true / y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of true targets.
+y_pred: Tensor of predicted targets.</p>
+<p>Returns:
+A <code>Tensor</code> with loss.</p>
+<p>Raises:
+TypeError: If <code>y_true</code> cannot be cast to the <code>y_pred.dtype</code>.</p>
+<hr />
+<h3 id="kldivergence-class">KLDivergence class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.KLDivergence(reduction=&quot;auto&quot;, name=&quot;kl_divergence&quot;)
+</code></pre>
+<p>Computes Kullback-Leibler divergence loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_true * log(y_true / y_pred)</code></p>
+<p>See: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 1], [0, 0]]
+y_pred = [[0.6, 0.4], [0.4, 0.6]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_6">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>kl = tf.keras.losses.KLDivergence()
+kl(y_true, y_pred).numpy()
+0.458</p>
+<h1 id="calling-with-sample_weight_6">Calling with 'sample_weight'.</h1>
+<p>kl(y_true, y_pred, sample_weight=[0.8, 0.2]).numpy()
+0.366</p>
+<h1 id="using-sum-reduction-type_6">Using 'sum' reduction type.</h1>
+<p>kl = tf.keras.losses.KLDivergence(
+...     reduction=tf.keras.losses.Reduction.SUM)
+kl(y_true, y_pred).numpy()
+0.916</p>
+<h1 id="using-none-reduction-type_6">Using 'none' reduction type.</h1>
+<p>kl = tf.keras.losses.KLDivergence(
+...     reduction=tf.keras.losses.Reduction.NONE)
+kl(y_true, y_pred).numpy()
+array([0.916, -3.08e-06], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.KLDivergence())
+</code></pre>
+<hr />
+<h3 id="logcosh-class">LogCosh class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.LogCosh(reduction=&quot;auto&quot;, name=&quot;log_cosh&quot;)
+</code></pre>
+<p>Computes the logarithm of the hyperbolic cosine of the prediction error.</p>
+<p><code>logcosh = log((exp(x) + exp(-x))/2)</code>,
+where x is the error <code>y_pred - y_true</code>.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [0., 0.]]
+y_pred = [[1., 1.], [0., 0.]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_7">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>l = tf.keras.losses.LogCosh()
+l(y_true, y_pred).numpy()
+0.108</p>
+<h1 id="calling-with-sample_weight_7">Calling with 'sample_weight'.</h1>
+<p>l(y_true, y_pred, sample_weight=[0.8, 0.2]).numpy()
+0.087</p>
+<h1 id="using-sum-reduction-type_7">Using 'sum' reduction type.</h1>
+<p>l = tf.keras.losses.LogCosh(
+...     reduction=tf.keras.losses.Reduction.SUM)
+l(y_true, y_pred).numpy()
+0.217</p>
+<h1 id="using-none-reduction-type_7">Using 'none' reduction type.</h1>
+<p>l = tf.keras.losses.LogCosh(
+...     reduction=tf.keras.losses.Reduction.NONE)
+l(y_true, y_pred).numpy()
+array([0.217, 0.], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.LogCosh())
+</code></pre>
+<hr />
+<h3 id="loss-class">Loss class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.Loss(reduction=&quot;auto&quot;, name=None)
+</code></pre>
+<p>Loss base class.</p>
+<p>To be implemented by subclasses:
+* <code>call()</code>: Contains the logic for loss calculation using <code>y_true</code>, <code>y_pred</code>.</p>
+<p>Example subclass implementation:</p>
+<pre><code class="language-python">class MeanSquaredError(Loss):
+
+  def call(self, y_true, y_pred):
+    y_pred = tf.convert_to_tensor_v2(y_pred)
+    y_true = tf.cast(y_true, y_pred.dtype)
+    return tf.reduce_mean(math_ops.square(y_pred - y_true), axis=-1)
+</code></pre>
+<p>When used with <code>tf.distribute.Strategy</code>, outside of built-in training loops
+such as <code>tf.keras</code> <code>compile</code> and <code>fit</code>, please use 'SUM' or 'NONE' reduction
+types, and reduce losses explicitly in your training loop. Using 'AUTO' or
+'SUM_OVER_BATCH_SIZE' will raise an error.</p>
+<p>Please see this custom training <a href="https://www.tensorflow.org/tutorials/distribute/custom_training">tutorial</a> for more
+details on this.</p>
+<p>You can implement 'SUM_OVER_BATCH_SIZE' using global batch size like:</p>
+<pre><code class="language-python">with strategy.scope():
+  loss_obj = tf.keras.losses.CategoricalCrossentropy(
+      reduction=tf.keras.losses.Reduction.NONE)
+  ....
+  loss = (tf.reduce_sum(loss_obj(labels, predictions)) *
+          (1. / global_batch_size))
+</code></pre>
+<hr />
+<h3 id="mean_absolute_error-function">mean_absolute_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.MAE(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute error between labels and predictions.</p>
+<p><code>loss = mean(abs(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.abs(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_percentage_error-function">mean_absolute_percentage_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.MAPE(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute percentage error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = 100 * mean(abs((y_true - y_pred) / y_true), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_true = np.maximum(y_true, 1e-7)  # Prevent division by zero
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_percentage_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     100. * np.mean(np.abs((y_true - y_pred) / y_true), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute percentage error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_error-function">mean_squared_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.MSE(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared error between labels and predictions.</p>
+<p>After computing the squared distance between the inputs, the mean value over
+the last dimension is returned.</p>
+<p><code>loss = mean(square(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.square(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_logarithmic_error-function">mean_squared_logarithmic_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.MSLE(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared logarithmic error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(square(log(y_true + 1) - log(y_pred + 1)), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_logarithmic_error(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = np.maximum(y_true, 1e-7)
+y_pred = np.maximum(y_pred, 1e-7)
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(
+...         np.square(np.log(y_true + 1.) - np.log(y_pred + 1.)), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared logarithmic error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="meanabsoluteerror-class">MeanAbsoluteError class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.MeanAbsoluteError(reduction=&quot;auto&quot;, name=&quot;mean_absolute_error&quot;)
+</code></pre>
+<p>Computes the mean of absolute difference between labels and predictions.</p>
+<p><code>loss = abs(y_true - y_pred)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [0., 0.]]
+y_pred = [[1., 1.], [1., 0.]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_8">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>mae = tf.keras.losses.MeanAbsoluteError()
+mae(y_true, y_pred).numpy()
+0.5</p>
+<h1 id="calling-with-sample_weight_8">Calling with 'sample_weight'.</h1>
+<p>mae(y_true, y_pred, sample_weight=[0.7, 0.3]).numpy()
+0.25</p>
+<h1 id="using-sum-reduction-type_8">Using 'sum' reduction type.</h1>
+<p>mae = tf.keras.losses.MeanAbsoluteError(
+...     reduction=tf.keras.losses.Reduction.SUM)
+mae(y_true, y_pred).numpy()
+1.0</p>
+<h1 id="using-none-reduction-type_8">Using 'none' reduction type.</h1>
+<p>mae = tf.keras.losses.MeanAbsoluteError(
+...     reduction=tf.keras.losses.Reduction.NONE)
+mae(y_true, y_pred).numpy()
+array([0.5, 0.5], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.MeanAbsoluteError())
+</code></pre>
+<hr />
+<h3 id="meanabsolutepercentageerror-class">MeanAbsolutePercentageError class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.MeanAbsolutePercentageError(
+    reduction=&quot;auto&quot;, name=&quot;mean_absolute_percentage_error&quot;
+)
+</code></pre>
+<p>Computes the mean absolute percentage error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = 100 * abs(y_true - y_pred) / y_true</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[2., 1.], [2., 3.]]
+y_pred = [[1., 1.], [1., 0.]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_9">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>mape = tf.keras.losses.MeanAbsolutePercentageError()
+mape(y_true, y_pred).numpy()
+50.</p>
+<h1 id="calling-with-sample_weight_9">Calling with 'sample_weight'.</h1>
+<p>mape(y_true, y_pred, sample_weight=[0.7, 0.3]).numpy()
+20.</p>
+<h1 id="using-sum-reduction-type_9">Using 'sum' reduction type.</h1>
+<p>mape = tf.keras.losses.MeanAbsolutePercentageError(
+...     reduction=tf.keras.losses.Reduction.SUM)
+mape(y_true, y_pred).numpy()
+100.</p>
+<h1 id="using-none-reduction-type_9">Using 'none' reduction type.</h1>
+<p>mape = tf.keras.losses.MeanAbsolutePercentageError(
+...     reduction=tf.keras.losses.Reduction.NONE)
+mape(y_true, y_pred).numpy()
+array([25., 75.], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss=tf.keras.losses.MeanAbsolutePercentageError())
+</code></pre>
+<hr />
+<h3 id="meansquarederror-class">MeanSquaredError class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.MeanSquaredError(reduction=&quot;auto&quot;, name=&quot;mean_squared_error&quot;)
+</code></pre>
+<p>Computes the mean of squares of errors between labels and predictions.</p>
+<p><code>loss = square(y_true - y_pred)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [0., 0.]]
+y_pred = [[1., 1.], [1., 0.]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_10">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>mse = tf.keras.losses.MeanSquaredError()
+mse(y_true, y_pred).numpy()
+0.5</p>
+<h1 id="calling-with-sample_weight_10">Calling with 'sample_weight'.</h1>
+<p>mse(y_true, y_pred, sample_weight=[0.7, 0.3]).numpy()
+0.25</p>
+<h1 id="using-sum-reduction-type_10">Using 'sum' reduction type.</h1>
+<p>mse = tf.keras.losses.MeanSquaredError(
+...     reduction=tf.keras.losses.Reduction.SUM)
+mse(y_true, y_pred).numpy()
+1.0</p>
+<h1 id="using-none-reduction-type_10">Using 'none' reduction type.</h1>
+<p>mse = tf.keras.losses.MeanSquaredError(
+...     reduction=tf.keras.losses.Reduction.NONE)
+mse(y_true, y_pred).numpy()
+array([0.5, 0.5], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.MeanSquaredError())
+</code></pre>
+<hr />
+<h3 id="meansquaredlogarithmicerror-class">MeanSquaredLogarithmicError class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.MeanSquaredLogarithmicError(
+    reduction=&quot;auto&quot;, name=&quot;mean_squared_logarithmic_error&quot;
+)
+</code></pre>
+<p>Computes the mean squared logarithmic error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = square(log(y_true + 1.) - log(y_pred + 1.))</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [0., 0.]]
+y_pred = [[1., 1.], [1., 0.]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_11">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>msle = tf.keras.losses.MeanSquaredLogarithmicError()
+msle(y_true, y_pred).numpy()
+0.240</p>
+<h1 id="calling-with-sample_weight_11">Calling with 'sample_weight'.</h1>
+<p>msle(y_true, y_pred, sample_weight=[0.7, 0.3]).numpy()
+0.120</p>
+<h1 id="using-sum-reduction-type_11">Using 'sum' reduction type.</h1>
+<p>msle = tf.keras.losses.MeanSquaredLogarithmicError(
+...     reduction=tf.keras.losses.Reduction.SUM)
+msle(y_true, y_pred).numpy()
+0.480</p>
+<h1 id="using-none-reduction-type_11">Using 'none' reduction type.</h1>
+<p>msle = tf.keras.losses.MeanSquaredLogarithmicError(
+...     reduction=tf.keras.losses.Reduction.NONE)
+msle(y_true, y_pred).numpy()
+array([0.240, 0.240], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss=tf.keras.losses.MeanSquaredLogarithmicError())
+</code></pre>
+<hr />
+<h3 id="poisson-class">Poisson class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.Poisson(reduction=&quot;auto&quot;, name=&quot;poisson&quot;)
+</code></pre>
+<p>Computes the Poisson loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_pred - y_true * log(y_pred)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [0., 0.]]
+y_pred = [[1., 1.], [0., 0.]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_12">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>p = tf.keras.losses.Poisson()
+p(y_true, y_pred).numpy()
+0.5</p>
+<h1 id="calling-with-sample_weight_12">Calling with 'sample_weight'.</h1>
+<p>p(y_true, y_pred, sample_weight=[0.8, 0.2]).numpy()
+0.4</p>
+<h1 id="using-sum-reduction-type_12">Using 'sum' reduction type.</h1>
+<p>p = tf.keras.losses.Poisson(
+...     reduction=tf.keras.losses.Reduction.SUM)
+p(y_true, y_pred).numpy()
+0.999</p>
+<h1 id="using-none-reduction-type_12">Using 'none' reduction type.</h1>
+<p>p = tf.keras.losses.Poisson(
+...     reduction=tf.keras.losses.Reduction.NONE)
+p(y_true, y_pred).numpy()
+array([0.999, 0.], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.Poisson())
+</code></pre>
+<hr />
+<h3 id="reductionv2-class">ReductionV2 class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.Reduction(*args, **kwargs)
+</code></pre>
+<p>Types of loss reduction.</p>
+<p>Contains the following values:</p>
+<ul>
+<li><code>AUTO</code>: Indicates that the reduction option will be determined by the usage
+context. For almost all cases this defaults to <code>SUM_OVER_BATCH_SIZE</code>. When
+used with <code>tf.distribute.Strategy</code>, outside of built-in training loops such
+as <code>tf.keras</code> <code>compile</code> and <code>fit</code>, we expect reduction value to be
+<code>SUM</code> or <code>NONE</code>. Using <code>AUTO</code> in that case will raise an error.</li>
+<li><code>NONE</code>: Weighted losses with one dimension reduced (axis=-1, or axis
+specified by loss function). When this reduction type used with built-in
+Keras training loops like <code>fit</code>/<code>evaluate</code>, the unreduced vector loss is
+passed to the optimizer but the reported loss will be a scalar value.</li>
+<li><code>SUM</code>: Scalar sum of weighted losses.</li>
+<li><code>SUM_OVER_BATCH_SIZE</code>: Scalar <code>SUM</code> divided by number of elements in losses.
+This reduction type is not supported when used with
+<code>tf.distribute.Strategy</code> outside of built-in training loops like <code>tf.keras</code>
+<code>compile</code>/<code>fit</code>.</li>
+</ul>
+<p>You can implement 'SUM_OVER_BATCH_SIZE' using global batch size like:</p>
+<pre><code>with strategy.scope():
+  loss_obj = tf.keras.losses.CategoricalCrossentropy(
+      reduction=tf.keras.losses.Reduction.NONE)
+  ....
+  loss = tf.reduce_sum(loss_obj(labels, predictions)) *
+      (1. / global_batch_size)
+</code></pre>
+<p>Please see the
+<a href="https://www.tensorflow.org/tutorials/distribute/custom_training">custom training guide</a>  # pylint: disable=line-too-long
+for more details on this.</p>
+<hr />
+<h3 id="sparsecategoricalcrossentropy-class">SparseCategoricalCrossentropy class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.SparseCategoricalCrossentropy(
+    from_logits=False, reduction=&quot;auto&quot;, name=&quot;sparse_categorical_crossentropy&quot;
+)
+</code></pre>
+<p>Computes the crossentropy loss between the labels and predictions.</p>
+<p>Use this crossentropy loss function when there are two or more label classes.
+We expect labels to be provided as integers. If you want to provide labels
+using <code>one-hot</code> representation, please use <code>CategoricalCrossentropy</code> loss.
+There should be <code># classes</code> floating point values per feature for <code>y_pred</code>
+and a single floating point value per feature for <code>y_true</code>.</p>
+<p>In the snippet below, there is a single floating point value per example for
+<code>y_true</code> and <code># classes</code> floating pointing values per example for <code>y_pred</code>.
+The shape of <code>y_true</code> is <code>[batch_size]</code> and the shape of <code>y_pred</code> is
+<code>[batch_size, num_classes]</code>.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [1, 2]
+y_pred = [[0.05, 0.95, 0], [0.1, 0.8, 0.1]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_13">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>scce = tf.keras.losses.SparseCategoricalCrossentropy()
+scce(y_true, y_pred).numpy()
+1.177</p>
+<h1 id="calling-with-sample_weight_13">Calling with 'sample_weight'.</h1>
+<p>scce(y_true, y_pred, sample_weight=tf.constant([0.3, 0.7])).numpy()
+0.814</p>
+<h1 id="using-sum-reduction-type_13">Using 'sum' reduction type.</h1>
+<p>scce = tf.keras.losses.SparseCategoricalCrossentropy(
+...     reduction=tf.keras.losses.Reduction.SUM)
+scce(y_true, y_pred).numpy()
+2.354</p>
+<h1 id="using-none-reduction-type_13">Using 'none' reduction type.</h1>
+<p>scce = tf.keras.losses.SparseCategoricalCrossentropy(
+...     reduction=tf.keras.losses.Reduction.NONE)
+scce(y_true, y_pred).numpy()
+array([0.0513, 2.303], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd',
+              loss=tf.keras.losses.SparseCategoricalCrossentropy())
+</code></pre>
+<hr />
+<h3 id="squaredhinge-class">SquaredHinge class</h3>
+<pre><code class="language-python">tensorflow.keras.losses.SquaredHinge(reduction=&quot;auto&quot;, name=&quot;squared_hinge&quot;)
+</code></pre>
+<p>Computes the squared hinge loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = square(maximum(1 - y_true * y_pred, 0))</code></p>
+<p><code>y_true</code> values are expected to be -1 or 1. If binary (0 or 1) labels are
+provided we will convert them to -1 or 1.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [0., 0.]]
+y_pred = [[0.6, 0.4], [0.4, 0.6]]</p>
+<h1 id="using-autosum_over_batch_size-reduction-type_14">Using 'auto'/'sum_over_batch_size' reduction type.</h1>
+<p>h = tf.keras.losses.SquaredHinge()
+h(y_true, y_pred).numpy()
+1.86</p>
+<h1 id="calling-with-sample_weight_14">Calling with 'sample_weight'.</h1>
+<p>h(y_true, y_pred, sample_weight=[1, 0]).numpy()
+0.73</p>
+<h1 id="using-sum-reduction-type_14">Using 'sum' reduction type.</h1>
+<p>h = tf.keras.losses.SquaredHinge(
+...     reduction=tf.keras.losses.Reduction.SUM)
+h(y_true, y_pred).numpy()
+3.72</p>
+<h1 id="using-none-reduction-type_14">Using 'none' reduction type.</h1>
+<p>h = tf.keras.losses.SquaredHinge(
+...     reduction=tf.keras.losses.Reduction.NONE)
+h(y_true, y_pred).numpy()
+array([1.46, 2.26], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Usage with the <code>compile()</code> API:</p>
+<pre><code class="language-python">model.compile(optimizer='sgd', loss=tf.keras.losses.SquaredHinge())
+</code></pre>
+<hr />
+<h3 id="binary_crossentropy-function">binary_crossentropy function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.binary_crossentropy(y_true, y_pred, from_logits=False, label_smoothing=0)
+</code></pre>
+<p>Computes the binary crossentropy loss.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 1], [0, 0]]
+y_pred = [[0.6, 0.4], [0.4, 0.6]]
+loss = tf.keras.losses.binary_crossentropy(y_true, y_pred)
+assert loss.shape == (2,)
+loss.numpy()
+array([0.916 , 0.714], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.
+from_logits: Whether <code>y_pred</code> is expected to be a logits tensor. By default,
+we assume that <code>y_pred</code> encodes a probability distribution.
+label_smoothing: Float in [0, 1]. If &gt; <code>0</code> then smooth the labels.</p>
+<p>Returns:
+Binary crossentropy loss value. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="categorical_crossentropy-function">categorical_crossentropy function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.categorical_crossentropy(y_true, y_pred, from_logits=False, label_smoothing=0)
+</code></pre>
+<p>Computes the categorical crossentropy loss.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0, 1, 0], [0, 0, 1]]
+y_pred = [[0.05, 0.95, 0], [0.1, 0.8, 0.1]]
+loss = tf.keras.losses.categorical_crossentropy(y_true, y_pred)
+assert loss.shape == (2,)
+loss.numpy()
+array([0.0513, 2.303], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of one-hot true targets.
+y_pred: Tensor of predicted targets.
+from_logits: Whether <code>y_pred</code> is expected to be a logits tensor. By default,
+we assume that <code>y_pred</code> encodes a probability distribution.
+label_smoothing: Float in [0, 1]. If &gt; <code>0</code> then smooth the labels.</p>
+<p>Returns:
+Categorical crossentropy loss value.</p>
+<hr />
+<h3 id="categorical_hinge-function">categorical_hinge function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.categorical_hinge(y_true, y_pred)
+</code></pre>
+<p>Computes the categorical hinge loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = maximum(neg - pos + 1, 0)</code>
+where <code>neg=maximum((1-y_true)*y_pred) and pos=sum(y_true*y_pred)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 3, size=(2,))
+y_true = tf.keras.utils.to_categorical(y_true, num_classes=3)
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.categorical_hinge(y_true, y_pred)
+assert loss.shape == (2,)
+pos = np.sum(y_true * y_pred, axis=-1)
+neg = np.amax((1. - y_true) * y_pred, axis=-1)
+assert np.array_equal(loss.numpy(), np.maximum(0., neg - pos + 1.))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: The ground truth values. <code>y_true</code> values are expected to be 0 or 1.
+y_pred: The predicted values.</p>
+<p>Returns:
+Categorical hinge loss values.</p>
+<hr />
+<h3 id="cosine_similarity-function">cosine_similarity function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.cosine_similarity(y_true, y_pred, axis=-1)
+</code></pre>
+<p>Computes the cosine similarity between labels and predictions.</p>
+<p>Note that it is a number between -1 and 1. When it is a negative number
+between -1 and 0, 0 indicates orthogonality and values closer to -1
+indicate greater similarity. The values closer to 1 indicate greater
+dissimilarity. This makes it usable as a loss function in a setting
+where you try to maximize the proximity between predictions and
+targets. If either <code>y_true</code> or <code>y_pred</code> is a zero vector, cosine
+similarity will be 0 regardless of the proximity between predictions
+and targets.</p>
+<p><code>loss = -sum(l2_norm(y_true) * l2_norm(y_pred))</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [[0., 1.], [1., 1.], [1., 1.]]
+y_pred = [[1., 0.], [1., 1.], [-1., -1.]]
+loss = tf.keras.losses.cosine_similarity(y_true, y_pred, axis=1)
+loss.numpy()
+array([-0., -0.999, 0.999], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of true targets.
+y_pred: Tensor of predicted targets.
+axis: Axis along which to determine similarity.</p>
+<p>Returns:
+Cosine similarity tensor.</p>
+<hr />
+<h3 id="deserialize-function">deserialize function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.deserialize(name, custom_objects=None)
+</code></pre>
+<p>Deserializes a serialized loss class/function instance.</p>
+<p>Arguments:
+name: Loss configuration.
+custom_objects: Optional dictionary mapping names (strings) to custom
+objects (classes and functions) to be considered during deserialization.</p>
+<p>Returns:
+A Keras <code>Loss</code> instance or a loss function.</p>
+<hr />
+<h3 id="get-function">get function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.get(identifier)
+</code></pre>
+<p>Retrieves a Keras loss as a <code>function</code>/<code>Loss</code> class instance.</p>
+<p>The <code>identifier</code> may be the string name of a loss function or <code>Loss</code> class.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>loss = tf.keras.losses.get("categorical_crossentropy")
+type(loss)
+<class 'function'>
+loss = tf.keras.losses.get("CategoricalCrossentropy")
+type(loss)
+<class '...tensorflow.python.keras.losses.CategoricalCrossentropy'></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>You can also specify <code>config</code> of the loss to this function by passing dict
+containing <code>class_name</code> and <code>config</code> as an identifier. Also note that the
+<code>class_name</code> must map to a <code>Loss</code> class</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>identifier = {"class_name": "CategoricalCrossentropy",
+...               "config": {"from_logits": True}}
+loss = tf.keras.losses.get(identifier)
+type(loss)
+<class '...tensorflow.python.keras.losses.CategoricalCrossentropy'></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Arguments:
+identifier: A loss identifier. One of None or string name of a loss
+function/class or loss configuration dictionary or a loss function or a
+loss class instance</p>
+<p>Returns:
+A Keras loss as a <code>function</code>/ <code>Loss</code> class instance.</p>
+<p>Raises:
+ValueError: If <code>identifier</code> cannot be interpreted.</p>
+<hr />
+<h3 id="hinge-function">hinge function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.hinge(y_true, y_pred)
+</code></pre>
+<p>Computes the hinge loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(maximum(1 - y_true * y_pred, 0), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.choice([-1, 1], size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.hinge(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     np.mean(np.maximum(1. - y_true * y_pred, 0.), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: The ground truth values. <code>y_true</code> values are expected to be -1 or 1.
+If binary (0 or 1) labels are provided they will be converted to -1 or 1.
+shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Hinge loss values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="huber-function">huber function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.huber(y_true, y_pred, delta=1.0)
+</code></pre>
+<p>Computes Huber loss value.</p>
+<p>For each value x in <code>error = y_true - y_pred</code>:</p>
+<pre><code>loss = 0.5 * x^2                  if |x| &lt;= d
+loss = 0.5 * d^2 + d * (|x| - d)  if |x| &gt; d
+</code></pre>
+<p>where d is <code>delta</code>. See: https://en.wikipedia.org/wiki/Huber_loss</p>
+<p>Args:
+y_true: tensor of true targets.
+y_pred: tensor of predicted targets.
+delta: A float, the point where the Huber loss function changes from a
+quadratic to linear.</p>
+<p>Returns:
+Tensor with one scalar loss entry per sample.</p>
+<hr />
+<h3 id="kl_divergence-function_1">kl_divergence function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.kl_divergence(y_true, y_pred)
+</code></pre>
+<p>Computes Kullback-Leibler divergence loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_true * log(y_true / y_pred)</code></p>
+<p>See: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3)).astype(np.float64)
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.kullback_leibler_divergence(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = tf.keras.backend.clip(y_true, 1e-7, 1)
+y_pred = tf.keras.backend.clip(y_pred, 1e-7, 1)
+assert np.array_equal(
+...     loss.numpy(), np.sum(y_true * np.log(y_true / y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of true targets.
+y_pred: Tensor of predicted targets.</p>
+<p>Returns:
+A <code>Tensor</code> with loss.</p>
+<p>Raises:
+TypeError: If <code>y_true</code> cannot be cast to the <code>y_pred.dtype</code>.</p>
+<hr />
+<h3 id="kl_divergence-function_2">kl_divergence function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.kld(y_true, y_pred)
+</code></pre>
+<p>Computes Kullback-Leibler divergence loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_true * log(y_true / y_pred)</code></p>
+<p>See: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3)).astype(np.float64)
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.kullback_leibler_divergence(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = tf.keras.backend.clip(y_true, 1e-7, 1)
+y_pred = tf.keras.backend.clip(y_pred, 1e-7, 1)
+assert np.array_equal(
+...     loss.numpy(), np.sum(y_true * np.log(y_true / y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of true targets.
+y_pred: Tensor of predicted targets.</p>
+<p>Returns:
+A <code>Tensor</code> with loss.</p>
+<p>Raises:
+TypeError: If <code>y_true</code> cannot be cast to the <code>y_pred.dtype</code>.</p>
+<hr />
+<h3 id="kl_divergence-function_3">kl_divergence function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.kullback_leibler_divergence(y_true, y_pred)
+</code></pre>
+<p>Computes Kullback-Leibler divergence loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = y_true * log(y_true / y_pred)</code></p>
+<p>See: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3)).astype(np.float64)
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.kullback_leibler_divergence(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = tf.keras.backend.clip(y_true, 1e-7, 1)
+y_pred = tf.keras.backend.clip(y_pred, 1e-7, 1)
+assert np.array_equal(
+...     loss.numpy(), np.sum(y_true * np.log(y_true / y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Tensor of true targets.
+y_pred: Tensor of predicted targets.</p>
+<p>Returns:
+A <code>Tensor</code> with loss.</p>
+<p>Raises:
+TypeError: If <code>y_true</code> cannot be cast to the <code>y_pred.dtype</code>.</p>
+<hr />
+<h3 id="log_cosh-function">log_cosh function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.log_cosh(y_true, y_pred)
+</code></pre>
+<p>Logarithm of the hyperbolic cosine of the prediction error.</p>
+<p><code>log(cosh(x))</code> is approximately equal to <code>(x ** 2) / 2</code> for small <code>x</code> and
+to <code>abs(x) - log(2)</code> for large <code>x</code>. This means that 'logcosh' works mostly
+like the mean squared error, but will not be so strongly affected by the
+occasional wildly incorrect prediction.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.logcosh(y_true, y_pred)
+assert loss.shape == (2,)
+x = y_pred - y_true
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(x + np.log(np.exp(-2. * x) + 1.) - math_ops.log(2.), axis=-1),
+...     atol=1e-5)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Logcosh error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="log_cosh-function_1">log_cosh function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.logcosh(y_true, y_pred)
+</code></pre>
+<p>Logarithm of the hyperbolic cosine of the prediction error.</p>
+<p><code>log(cosh(x))</code> is approximately equal to <code>(x ** 2) / 2</code> for small <code>x</code> and
+to <code>abs(x) - log(2)</code> for large <code>x</code>. This means that 'logcosh' works mostly
+like the mean squared error, but will not be so strongly affected by the
+occasional wildly incorrect prediction.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.logcosh(y_true, y_pred)
+assert loss.shape == (2,)
+x = y_pred - y_true
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(x + np.log(np.exp(-2. * x) + 1.) - math_ops.log(2.), axis=-1),
+...     atol=1e-5)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Logcosh error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_error-function_1">mean_absolute_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.mae(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute error between labels and predictions.</p>
+<p><code>loss = mean(abs(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.abs(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_percentage_error-function_1">mean_absolute_percentage_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.mape(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute percentage error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = 100 * mean(abs((y_true - y_pred) / y_true), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_true = np.maximum(y_true, 1e-7)  # Prevent division by zero
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_percentage_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     100. * np.mean(np.abs((y_true - y_pred) / y_true), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute percentage error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_error-function_2">mean_absolute_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.mean_absolute_error(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute error between labels and predictions.</p>
+<p><code>loss = mean(abs(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.abs(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_absolute_percentage_error-function_2">mean_absolute_percentage_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.mean_absolute_percentage_error(y_true, y_pred)
+</code></pre>
+<p>Computes the mean absolute percentage error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = 100 * mean(abs((y_true - y_pred) / y_true), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.random(size=(2, 3))
+y_true = np.maximum(y_true, 1e-7)  # Prevent division by zero
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_absolute_percentage_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     100. * np.mean(np.abs((y_true - y_pred) / y_true), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean absolute percentage error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_error-function_1">mean_squared_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.mean_squared_error(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared error between labels and predictions.</p>
+<p>After computing the squared distance between the inputs, the mean value over
+the last dimension is returned.</p>
+<p><code>loss = mean(square(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.square(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_logarithmic_error-function_1">mean_squared_logarithmic_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.mean_squared_logarithmic_error(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared logarithmic error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(square(log(y_true + 1) - log(y_pred + 1)), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_logarithmic_error(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = np.maximum(y_true, 1e-7)
+y_pred = np.maximum(y_pred, 1e-7)
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(
+...         np.square(np.log(y_true + 1.) - np.log(y_pred + 1.)), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared logarithmic error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_error-function_2">mean_squared_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.mse(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared error between labels and predictions.</p>
+<p>After computing the squared distance between the inputs, the mean value over
+the last dimension is returned.</p>
+<p><code>loss = mean(square(y_true - y_pred), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_error(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(), np.mean(np.square(y_true - y_pred), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="mean_squared_logarithmic_error-function_2">mean_squared_logarithmic_error function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.msle(y_true, y_pred)
+</code></pre>
+<p>Computes the mean squared logarithmic error between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(square(log(y_true + 1) - log(y_pred + 1)), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.mean_squared_logarithmic_error(y_true, y_pred)
+assert loss.shape == (2,)
+y_true = np.maximum(y_true, 1e-7)
+y_pred = np.maximum(y_pred, 1e-7)
+assert np.allclose(
+...     loss.numpy(),
+...     np.mean(
+...         np.square(np.log(y_true + 1.) - np.log(y_pred + 1.)), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Mean squared logarithmic error values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+<h3 id="poisson-function">poisson function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.poisson(y_true, y_pred)
+</code></pre>
+<p>Computes the Poisson loss between y_true and y_pred.</p>
+<p>The Poisson loss is the mean of the elements of the <code>Tensor</code>
+<code>y_pred - y_true * log(y_pred)</code>.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.randint(0, 2, size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.poisson(y_true, y_pred)
+assert loss.shape == (2,)
+y_pred = y_pred + 1e-7
+assert np.allclose(
+...     loss.numpy(), np.mean(y_pred - y_true * np.log(y_pred), axis=-1),
+...     atol=1e-5)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values. shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Poisson loss value. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<p>Raises:
+InvalidArgumentError: If <code>y_true</code> and <code>y_pred</code> have incompatible shapes.</p>
+<hr />
+<h3 id="serialize-function">serialize function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.serialize(loss)
+</code></pre>
+<p>Serializes loss function or <code>Loss</code> instance.</p>
+<p>Arguments:
+loss: A Keras <code>Loss</code> instance or a loss function.</p>
+<p>Returns:
+Loss configuration dictionary.</p>
+<hr />
+<h3 id="sparse_categorical_crossentropy-function">sparse_categorical_crossentropy function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.sparse_categorical_crossentropy(y_true, y_pred, from_logits=False, axis=-1)
+</code></pre>
+<p>Computes the sparse categorical crossentropy loss.</p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = [1, 2]
+y_pred = [[0.05, 0.95, 0], [0.1, 0.8, 0.1]]
+loss = tf.keras.losses.sparse_categorical_crossentropy(y_true, y_pred)
+assert loss.shape == (2,)
+loss.numpy()
+array([0.0513, 2.303], dtype=float32)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: Ground truth values.
+y_pred: The predicted values.
+from_logits: Whether <code>y_pred</code> is expected to be a logits tensor. By default,
+we assume that <code>y_pred</code> encodes a probability distribution.
+axis: (Optional) Defaults to -1. The dimension along which the entropy is
+computed.</p>
+<p>Returns:
+Sparse categorical crossentropy loss value.</p>
+<hr />
+<h3 id="squared_hinge-function">squared_hinge function</h3>
+<pre><code class="language-python">tensorflow.keras.losses.squared_hinge(y_true, y_pred)
+</code></pre>
+<p>Computes the squared hinge loss between <code>y_true</code> and <code>y_pred</code>.</p>
+<p><code>loss = mean(square(maximum(1 - y_true * y_pred, 0)), axis=-1)</code></p>
+<p>Standalone usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>y_true = np.random.choice([-1, 1], size=(2, 3))
+y_pred = np.random.random(size=(2, 3))
+loss = tf.keras.losses.squared_hinge(y_true, y_pred)
+assert loss.shape == (2,)
+assert np.array_equal(
+...     loss.numpy(),
+...     np.mean(np.square(np.maximum(1. - y_true * y_pred, 0.)), axis=-1))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Args:
+y_true: The ground truth values. <code>y_true</code> values are expected to be -1 or 1.
+If binary (0 or 1) labels are provided we will convert them to -1 or 1.
+shape = <code>[batch_size, d0, .. dN]</code>.
+y_pred: The predicted values. shape = <code>[batch_size, d0, .. dN]</code>.</p>
+<p>Returns:
+Squared hinge loss values. shape = <code>[batch_size, d0, .. dN-1]</code>.</p>
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../SSDLoss/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              SSDLoss
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../metrics/SparseCategoricalCrossentropyIgnore/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              SparseCategoricalCrossentropyIgnore
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d892486b.min.js"></script>
+      
+    
+  </body>
+</html>
